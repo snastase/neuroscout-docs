@@ -52,6 +52,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Cloning analyses" href="clone.html" />
+    <link rel="prev" title="Browse &amp; manage" href="browse_manage.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -95,61 +97,95 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../neuroscout_overview/neuroscout_overview.html">
    Overview &amp; ecosystem
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../neuroscout_web.html">
    Web-based platform
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../builder/index.html">
-     Getting Started
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../builder/analyze.html">
+     Creating analyzes
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../builder/index.html">
+       Getting Started
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../builder/predictors.html">
+       Select Predictors
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../builder/transformations.html">
+       Add Transformations
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../builder/hrf.html">
+       HRF Convolution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../builder/contrasts.html">
+       Contrasts
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../builder/review.html">
+       Review
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../builder/run.html">
+       Run / Status
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../builder/bib.html">
+       Bibliography
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../builder/predictors.html">
-     Select Predictors
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="browse_manage.html">
+     Browse &amp; manage
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../builder/transformations.html">
-     Add Transformations
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../builder/hrf.html">
-     HRF Convolution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../builder/contrasts.html">
-     Contrasts
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../builder/review.html">
-     Review
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../builder/run.html">
-     Run / Status
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../builder/bib.html">
-     Bibliography
-    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Browsing analyses
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="clone.html">
+       Cloning analyses
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -157,8 +193,8 @@
   <a class="reference internal" href="../../neuroscout_cli/neuroscout_cli.html">
    Running analyses
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -194,8 +230,8 @@
   <a class="reference internal" href="../../python_api/python_api.html">
    Python API
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -401,7 +437,21 @@ However, you can launch the analysis in “view-only” mode for any analysis, i
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="browse_manage.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Browse &amp; manage</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="clone.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Cloning analyses</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
