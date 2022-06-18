@@ -115,7 +115,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../neuroscout_web/builder/index.html">
-     Getting started
+     Getting Started
     </a>
    </li>
    <li class="toctree-l2">
@@ -314,18 +314,33 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run">
-     Run
+    <a class="reference internal nav-link" href="#run-command">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       run
+      </span>
+     </code>
+     command
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get">
-     Get
+    <a class="reference internal nav-link" href="#get-command">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       get
+      </span>
+     </code>
+     command
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#upload">
-     Upload
+    <a class="reference internal nav-link" href="#upload-command">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       upload
+      </span>
+     </code>
+     command
     </a>
    </li>
   </ul>
@@ -356,18 +371,33 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run">
-     Run
+    <a class="reference internal nav-link" href="#run-command">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       run
+      </span>
+     </code>
+     command
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get">
-     Get
+    <a class="reference internal nav-link" href="#get-command">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       get
+      </span>
+     </code>
+     command
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#upload">
-     Upload
+    <a class="reference internal nav-link" href="#upload-command">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       upload
+      </span>
+     </code>
+     command
     </a>
    </li>
   </ul>
@@ -385,21 +415,19 @@
 <h1>Neuroscout-CLI Usage<a class="headerlink" href="#neuroscout-cli-usage" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>If you&#39;re just starting out, we suggest you follow our [Docker quickstart](docker.md).
-Remember that if you&#39;re using Docker or Singularity, you will have to prepend the following
-commands with the respective container commands (e.g. `docker run -it neuroscout/neuroscout-cli`),
-and mount the appropriate volumes.
-</pre></div>
-</div>
+<p>If you’re just starting out, we suggest you follow our <a class="reference internal" href="docker.html"><span class="doc std std-doc">Docker quickstart</span></a>.
+Remember that if you’re using Docker or Singularity, you will have to prepend the following
+commands with the respective container commands (e.g. <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">neuroscout/neuroscout-cli</span></code>)
+and mount the appropriate volumes.</p>
 </div>
 <div class="section" id="neuroscout-cli-commands">
 <h2>Neuroscout-CLI commands<a class="headerlink" href="#neuroscout-cli-commands" title="Permalink to this headline">¶</a></h2>
 <p>Neuroscout-CLI has three commands: <code class="docutils literal notranslate"><span class="pre">run</span></code>, <code class="docutils literal notranslate"><span class="pre">get</span></code> and <code class="docutils literal notranslate"><span class="pre">upload</span></code>.</p>
-<p>By default, <code class="docutils literal notranslate"><span class="pre">run</span></code> will automatically use <code class="docutils literal notranslate"><span class="pre">get</span></code> to fetch the required inputs, and automatically <code class="docutils literal notranslate"><span class="pre">upload</span></code> results after execution.
+<p>By default, <code class="docutils literal notranslate"><span class="pre">run</span></code> will automatically use <code class="docutils literal notranslate"><span class="pre">get</span></code> to fetch the required inputs and automatically <code class="docutils literal notranslate"><span class="pre">upload</span></code> results after execution.
 Thus, in most cases, the <code class="docutils literal notranslate"><span class="pre">run</span></code> command is all you need.</p>
 <p>Let’s step through each command:</p>
-<div class="section" id="run">
-<h3>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="run-command">
+<h3><code class="docutils literal notranslate"><span class="pre">run</span></code> command<a class="headerlink" href="#run-command" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage: neuroscout run [OPTIONS] [FITLINS_OPTIONS]... ANALYSIS_ID OUT_DIR
 
   Run an analysis.
@@ -438,8 +466,8 @@ To see which options are available in FitLins, use <code class="docutils literal
 <p>After FitLins completes, <code class="docutils literal notranslate"><span class="pre">run</span></code> will automatically upload the results using the <code class="docutils literal notranslate"><span class="pre">upload</span></code> command.</p>
 <p>See each command below for more detail on downloading inputs, and uploading results.</p>
 </div>
-<div class="section" id="get">
-<h3>Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-command">
+<h3><code class="docutils literal notranslate"><span class="pre">get</span></code> command<a class="headerlink" href="#get-command" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage: neuroscout get [OPTIONS] ANALYSIS_ID OUT_DIR
 
   Fetch analysis inputs.
@@ -478,8 +506,8 @@ the data will be re-downloaded to the output directory.
 </div>
 </div>
 </div>
-<div class="section" id="upload">
-<h3>Upload<a class="headerlink" href="#upload" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="upload-command">
+<h3><code class="docutils literal notranslate"><span class="pre">upload</span></code> command<a class="headerlink" href="#upload-command" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage: neuroscout upload [OPTIONS] ANALYSIS_ID OUT_DIR
 
   Upload results.

@@ -115,7 +115,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../neuroscout_web/builder/index.html">
-     Getting started
+     Getting Started
     </a>
    </li>
    <li class="toctree-l2">
@@ -407,7 +407,7 @@
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You must have Docker installed on your system</p>
+<p>You must have Docker installed on your system.</p>
 </div>
 <p>Assuming you’ve already created an analysis on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, you can run it in one line using the analysis_id (e.g.: <code class="docutils literal notranslate"><span class="pre">a54oo</span></code>):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -it -v /local/dir:/outdir neuroscout/neuroscout-cli run 5xH93 /outdir
@@ -416,13 +416,13 @@
 <p>where <code class="docutils literal notranslate"><span class="pre">/local/dir</span></code> is the local directory you want to save the results.</p>
 <p>This command will first download the <em>latest</em> stable release of <em>neuroscout-cli</em>.</p>
 <p>Next, <em>neuroscout-cli</em> will download the corresponding preprocessed images, event files and model specification, and fit a multi-level GLM model.
-The results will be automatically uploaded to NeuroVault, and the analysis page will link to this upload: <a class="reference external" href="https://neuroscout.org/builder/a54oo">https://neuroscout.org/builder/a54oo</a>.</p>
+The results will be automatically uploaded to NeuroVault, and the analysis page will link to <a class="reference external" href="https://neuroscout.org/builder/a54oo">this upload</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">-it</span> <span class="pre">--rm</span></code> simply tells Docker to run in <em>interactive</em> mode and <em>remove</em> the running container after execution.</p>
 <p>See the following sections for how to customize this command to cache the downloaded data for future use, and save modeling outputs to disk.</p>
 </div>
 <div class="section" id="docker-images">
 <h2>Docker Images<a class="headerlink" href="#docker-images" title="Permalink to this headline">¶</a></h2>
-<p>For every release of <em>neuroscout-cli</em>, we publish a corresponding Docker image</p>
+<p>For every release of <em>neuroscout-cli</em>, we publish a corresponding Docker image .</p>
 <p>You can manually download a specific <em>neuroscout-cli</em> release as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker pull neuroscout/neuroscout-cli:&lt;version&gt;
 </pre></div>
@@ -444,7 +444,7 @@ If you omit version, the <em>latest</em> stable version will be downloaded.</p>
 <p>Containers are by default sandboxed so that they have access to a clean and separate environment.
 To access files in the container, you must explicitly mount volumes from your system to the Docker container.</p>
 <p>You can mount local directories to Docker containers using the <code class="docutils literal notranslate"><span class="pre">-v</span></code> argument, with the following syntax: <code class="docutils literal notranslate"><span class="pre">/local/host/path:/absolute/path/in/container</span></code>.</p>
-<p>Here we mount the local <code class="docutils literal notranslate"><span class="pre">/home/user/out</span></code> directory to <code class="docutils literal notranslate"><span class="pre">/out</span></code> on the container.:</p>
+<p>Here we mount the local <code class="docutils literal notranslate"><span class="pre">/home/user/out</span></code> directory to <code class="docutils literal notranslate"><span class="pre">/out</span></code> on the container:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -it --rm -v /home/user/out:/out neuroscout/neuroscout-cli run 5xH93 /out 
 </pre></div>
 </div>
@@ -473,7 +473,7 @@ Given the <code class="docutils literal notranslate"><span class="pre">analysis_
 |   |   ...
 </pre></div>
 </div>
-<p>Note that by default Neuroscout will save the input preprocessed fMRI images in the output folder, to create a fully reproducible result package.</p>
+<p>Note that, to create a fully reproducible result package, by default Neuroscout will save the input preprocessed fMRI images in the output folder.</p>
 </div>
 </div>
 <div class="section" id="caching-input-datasets">
@@ -494,7 +494,7 @@ Given the <code class="docutils literal notranslate"><span class="pre">analysis_
 <p>The next time you run a model with a previously downloaded dataset, it will not need to re-download the fMRI data. </br></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
-<p>Docker expects <strong>absolute paths</strong> for mounted directories</p>
+<p>Docker expects <strong>absolute paths</strong> for mounted directories.</p>
 </div>
 </div>
 <div class="section" id="other-command-line-arguments">
@@ -507,7 +507,7 @@ Given the <code class="docutils literal notranslate"><span class="pre">analysis_
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -it --rm neuroscout/neuroscout-cli run /out Mv3ev --n-cpus=15 --estimator=afni
 </pre></div>
 </div>
-<p>For more details on these arguments, see this <a class="reference internal" href="usage.html"><span class="doc std std-doc">reference</span></a>.</p>
+<p>For more details on these arguments, see the <a class="reference internal" href="usage.html"><span class="doc std std-doc">Neuroscout-CLI Usage reference</span></a>.</p>
 </div>
 </div>
 

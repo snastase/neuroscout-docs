@@ -39,6 +39,7 @@ Finally, a complete summary of your analysis is displayed in this tab. Here you 
 ![Review overview](img/review_overview.png)
 
 ```{Note}
-Neuroscout stores your model design using BIDS Stats-Model, an in-development JSON standard for representing fMRI models.
+Neuroscout stores your model design using [BIDS Stats Models](https://bids-standard.github.io/stats-models/), 
+an in-development JSON standard for representing fMRI models.
 This is the true, final representation of your model, so if you are having problems, or would like to meticulously review your analysis, review this section.
 ```

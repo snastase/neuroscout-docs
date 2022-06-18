@@ -115,7 +115,7 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="index.html">
-     Getting started
+     Getting Started
     </a>
    </li>
    <li class="toctree-l2">
@@ -336,8 +336,13 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#editing-and-order">
-   Editing and order
+  <a class="reference internal nav-link" href="#editing-and-ordering-transformations">
+   Editing and ordering
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     transformations
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -388,8 +393,13 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#editing-and-order">
-   Editing and order
+  <a class="reference internal nav-link" href="#editing-and-ordering-transformations">
+   Editing and ordering
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     transformations
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -424,7 +434,7 @@
 </table>
 <div class="section" id="select-input">
 <h2>Select input<a class="headerlink" href="#select-input" title="Permalink to this headline">¶</a></h2>
-<p>For all <code class="docutils literal notranslate"><span class="pre">transformation</span></code>, you must select which features this <code class="docutils literal notranslate"><span class="pre">transformation</span></code> will operate on.
+<p>For all <code class="docutils literal notranslate"><span class="pre">transformations</span></code>, you must select which features this <code class="docutils literal notranslate"><span class="pre">transformation</span></code> will operate on.
 Most operations will operate on each column independently, but specifying multiple columns will save you from having to specify the same operation for multiple <code class="docutils literal notranslate"><span class="pre">predictors</span></code>.</p>
 <p><img alt="Select inputs" src="../../_images/transformation_inputs.png" /></p>
 </div>
@@ -437,7 +447,7 @@ Most operations will operate on each column independently, but specifying multip
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Demean</span></code> - If <code class="docutils literal notranslate"><span class="pre">True</span></code>, subtracts the <code class="docutils literal notranslate"><span class="pre">mean</span></code> from each <code class="docutils literal notranslate"><span class="pre">input</span></code> column (i.e., applies <code class="docutils literal notranslate"><span class="pre">mean-centering</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Rescale</span></code> - If <code class="docutils literal notranslate"><span class="pre">True</span></code>, divides each <code class="docutils literal notranslate"><span class="pre">column</span></code> by its <code class="docutils literal notranslate"><span class="pre">standard</span> <span class="pre">deviation</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ReplaceNA</span></code> - Whether/when to replace missing values with <code class="docutils literal notranslate"><span class="pre">0</span></code>. “Don’t replace”- no replacement is performed. If ‘before’, missing values are replaced with <code class="docutils literal notranslate"><span class="pre">0</span></code>’s before <code class="docutils literal notranslate"><span class="pre">scaling</span></code>. If ‘after’, missing values are replaced with <code class="docutils literal notranslate"><span class="pre">0</span></code> after <code class="docutils literal notranslate"><span class="pre">scaling</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ReplaceNA</span></code> - Whether/when to replace missing values with <code class="docutils literal notranslate"><span class="pre">0</span></code>. If “Don’t replace”: no replacement is performed. If ‘before’: missing values are replaced with <code class="docutils literal notranslate"><span class="pre">0</span></code>’s before <code class="docutils literal notranslate"><span class="pre">scaling</span></code>. If ‘after’: missing values are replaced with <code class="docutils literal notranslate"><span class="pre">0</span></code> after <code class="docutils literal notranslate"><span class="pre">scaling</span></code>.</p></li>
 </ul>
 </div>
 <div class="section" id="orthogonalize">
@@ -458,8 +468,8 @@ Most operations will operate on each column independently, but specifying multip
 </ul>
 </div>
 </div>
-<div class="section" id="editing-and-order">
-<h2>Editing and order<a class="headerlink" href="#editing-and-order" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="editing-and-ordering-transformations">
+<h2>Editing and ordering <code class="docutils literal notranslate"><span class="pre">transformations</span></code><a class="headerlink" href="#editing-and-ordering-transformations" title="Permalink to this headline">¶</a></h2>
 <p>It is important to note that <code class="docutils literal notranslate"><span class="pre">transformations</span></code> are applied sequentially, so the order of the <code class="docutils literal notranslate"><span class="pre">transformation</span></code> matters.
 To re-order <code class="docutils literal notranslate"><span class="pre">transformations</span></code> you can drag and drop them in the list.</p>
 <p><img alt="Drag" src="../../_images/transformation_drag.png" /></p>
