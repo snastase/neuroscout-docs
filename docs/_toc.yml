@@ -17,7 +17,7 @@ chapters:
   - file: neuroscout_cli/index
   - file: neuroscout_cli/docker
   - file: neuroscout_cli/singularity
-  - file: neuroscout_cli/colab
+  - file: neuroscout_cli/Neuroscout_CLI_Colab_Demo
   - file: neuroscout_cli/usage
 - file: python_api/python_api
   sections:
