@@ -1,13 +1,13 @@
 # Running Neuroscout-CLI on Singularity (High Performance Clusters)
 
-!!! Note
-    Singularity must be available on your HPC. Contact your administrator.
-    This guide is for Singularity >= 2.5.
-
-!!! important
-    HPCs typically require jobs to be submitted using a scheduled such as SLURM. 
-    This will not be covered in this guide, and will assume commands are run on compute nodes (via interactive sessions or submitted scripts)
-
+```{Note}
+Singularity must be available on your HPC. Contact your administrator.
+This guide is for Singularity >= 2.5.
+```
+```{admonition} Important
+HPCs typically require jobs to be submitted using a scheduled such as SLURM. 
+This will not be covered in this guide, and will assume commands are run on compute nodes (via interactive sessions or submitted scripts)
+```
 
 ## Preparing Singularity Images.
 
@@ -25,10 +25,10 @@ You must specify a version.
 You can see the tags available for download on [GitHub Packages](https://github.com/neuroscout/neuroscout-cli/pkgs/container/neuroscout-cli).
 
 
-!!! note
+```{Note}
 `master` is a special tag name which refers to the most recent _unstable_ commit to GitHub. 
 `latest` refers to the latest _stable_ release.
-
+```
 
 ## Executing Singularity image
 
@@ -41,9 +41,9 @@ Where `<outdir>` is a directory you can save files to.
 This command will download the corresponding preprocessed images, event files and model specification, and fit a multi-level GLM model.
 The results will be automatically uploaded to NeuroVault, and the analysis page will link to this upload: https://neuroscout.org/builder/Mv3ev.
 
-!!! important
-    `neuroscout-cli-<version>.simg` refers to a specific downloaded image on your system. 
-
+```{admonition} Important
+`neuroscout-cli-<version>.simg` refers to a specific downloaded image on your system. 
+```
 
 ## Saving data to disk
 
@@ -57,7 +57,7 @@ Thus, you can simplify modify `<outdir>` to a directory of your choice:
 
 ## Caching input datasets
 
-If you wish to save the input preprocessed datasets elsewhere, simply specify a data installation directory with `--download-dir`L
+If you wish to save the input preprocessed datasets elsewhere, simply specify a data installation directory with `--download-dir`.
 
      singularity run --cleanenv neuroscout-cli-<version>.simg run --download-dir=/data Mv3ev /work/dir/out 
 

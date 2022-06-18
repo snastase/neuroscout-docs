@@ -1,23 +1,23 @@
 # Neuroscout-CLI Usage
 
-!!! Note
-    If you're just starting out, we suggest you follow our [Docker quickstart](docker.md).
-    Remember that if you're using Docker or Singularity, you will have to prepend the following
-    commands with the respective container commands (e.g. `docker run -it neuroscout/neuroscout-cli`),
-    and mount the appropriate volumes.
-
+```{Note}
+If you're just starting out, we suggest you follow our [Docker quickstart](docker.md).
+Remember that if you're using Docker or Singularity, you will have to prepend the following
+commands with the respective container commands (e.g. `docker run -it neuroscout/neuroscout-cli`) 
+and mount the appropriate volumes.
+```
 
 ## Neuroscout-CLI commands
     
 Neuroscout-CLI has three commands: `run`, `get` and `upload`.
 
-By default, `run` will automatically use `get` to fetch the required inputs, and automatically `upload` results after execution.
+By default, `run` will automatically use `get` to fetch the required inputs and automatically `upload` results after execution.
 Thus, in most cases, the `run` command is all you need.
 
 Let's step through each command:
 
 
-### Run
+### `run` command
 
 ```
 Usage: neuroscout run [OPTIONS] [FITLINS_OPTIONS]... ANALYSIS_ID OUT_DIR
@@ -62,7 +62,7 @@ After FitLins completes, `run` will automatically upload the results using the `
 See each command below for more detail on downloading inputs, and uploading results.
 
 
-### Get
+### `get` command
 
 ```
 Usage: neuroscout get [OPTIONS] ANALYSIS_ID OUT_DIR
@@ -99,12 +99,12 @@ For example:
 In this case, the fMRI dataset will be downloaded to `/home/user/data` and the output folder will be `/home/user/outputs/neuroscout-a54oo`,
 with the bundle contents saved in the output folder.
 
-!!! Note
+```{Note}
     If you use the `get` command with `--download-dir`, be sure to also specify this directory when calling `run`, otherwise
     the data will be re-downloaded to the output directory.
+```
 
-
-### Upload
+### `upload` command
 
 ```
 Usage: neuroscout upload [OPTIONS] ANALYSIS_ID OUT_DIR

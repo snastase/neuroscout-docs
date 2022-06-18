@@ -18,13 +18,13 @@ A third method of running analyses is Google Colab, though larger analyses will 
 
 For most systems, we recommend using [Docker](https://www.docker.com/resources/what-container). First, follow the instructions for installing [Docker](https://docs.docker.com/engine/install/) on your system.
 
-Next, follow our guide for running [Neuroscout on Docker](docker.md)
+Next, follow our guide for running [Neuroscout on Docker](docker.md).
 
 #### Singularity
 
 [Singularity](https://sylabs.io/singularity/) containers are a great solution for High Performance Computing (HPC) environments, where _Docker_ cannot typically be used due to more tightly controlled [user privileges](https://researchcomputing.princeton.edu/support/knowledge-base/singularity).
 
-First, check with your HPC administrator that _Singularity_ is available for use. If so, follow our guide for running [Neuroscout on Singularity](singulraity.md).
+First, check with your HPC administrator that _Singularity_ is available for use. If so, follow our guide for running [Neuroscout on Singularity](singularity.md).
 
 ### Google Colab
 
@@ -32,9 +32,9 @@ A Google colab notebook is available [here](https://colab.research.google.com/gi
 
 ### Manually prepared environment
 
-!!! Danger
-    Manually installing _neuroscout-cli_ can be difficult due to complex dependencies. Proceed only if you really need to do this.
-
+```{admonition} Danger
+Manually installing _neuroscout-cli_ can be difficult due to complex dependencies. Proceed only if you really need to do this.
+```
 Use pip to install _neuroscout-cli_ directly from the GitHub repo:
 
     pip install git+https://www.github.com/neuroscout/neuroscout-cli

@@ -14,10 +14,10 @@ You can use this to your advantage to share your analysis with your colleagues.
 
 If you agree to the terms, click `Generate` to submit.
 
-Be patient, analysis bundle generation may take a while.
+Be patient, as analysis bundle generation may take a while.
 If you're in a rush, and are willing to risk additional run-time errors, uncheck `Validate design matrix`.
 
-# After submission
+# After Submission
 
 After submitting your analysis, it will no longer be editable unless there is an error in your design that you must fix.
 
@@ -27,6 +27,7 @@ If your analysis successfully compiles, an example `neuroscout-cli` command will
 
 For more information on how to execute an analysis, head over to the [Run analysis](../cli/index.md) section.
 
-!!! Note
-    After your analysis is compiled, you can change the public/private settings of your analysis, as well as edit the `name` and `description`.
-    Also, notice the `Review` tab is still available.
+```{Note}
+After your analysis is compiled, you can change the public/private settings of your analysis, as well as edit the `name` and `description`.
+Also, notice the `Review` tab is still available.
+```
