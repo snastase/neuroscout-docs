@@ -3,7 +3,7 @@
 ## Quickstart
 
 ```{Note}
-You must have Docker installed on your system
+You must have Docker installed on your system.
 ```
 Assuming you've already created an analysis on neuroscout.org, you can run it in one line using the analysis_id (e.g.: `a54oo`):
 
@@ -14,7 +14,7 @@ where `/local/dir` is the local directory you want to save the results.
 This command will first download the _latest_ stable release of _neuroscout-cli_.
 
 Next, _neuroscout-cli_ will download the corresponding preprocessed images, event files and model specification, and fit a multi-level GLM model.
-The results will be automatically uploaded to NeuroVault, and the analysis page will link to this upload: https://neuroscout.org/builder/a54oo.
+The results will be automatically uploaded to NeuroVault, and the analysis page will link to [this upload](https://neuroscout.org/builder/a54oo).
 
 `-it --rm` simply tells Docker to run in _interactive_ mode and _remove_ the running container after execution.
 
@@ -22,7 +22,7 @@ See the following sections for how to customize this command to cache the downlo
 
 ## Docker Images
 
-For every release of _neuroscout-cli_, we publish a corresponding Docker image 
+For every release of _neuroscout-cli_, we publish a corresponding Docker image .
 
 You can manually download a specific _neuroscout-cli_ release as follows:
 
@@ -48,7 +48,7 @@ To access files in the container, you must explicitly mount volumes from your sy
 
 You can mount local directories to Docker containers using the `-v` argument, with the following syntax: `/local/host/path:/absolute/path/in/container`.
 
-Here we mount the local `/home/user/out` directory to `/out` on the container.:
+Here we mount the local `/home/user/out` directory to `/out` on the container:
 
 
     docker run -it --rm -v /home/user/out:/out neuroscout/neuroscout-cli run 5xH93 /out 
@@ -78,7 +78,7 @@ Given the `analysis_id`: `Mv3ev` and `dataset_name`: `Budapest`, this is a repre
     │   │   task-movie_space-MNI152NLin2009cAsym_contrast-{name}_stat-effect_statmap.nii.gz
     |   |   ...
 
-Note that by default Neuroscout will save the input preprocessed fMRI images in the output folder, to create a fully reproducible result package.
+Note that, to create a fully reproducible result package, by default Neuroscout will save the input preprocessed fMRI images in the output folder.
 
 ## Caching input datasets
 
@@ -101,7 +101,7 @@ The resulting cached data directory will look something like this, if you've run
 The next time you run a model with a previously downloaded dataset, it will not need to re-download the fMRI data. </br>
 
 ```{admonition} Important
-Docker expects **absolute paths** for mounted directories
+Docker expects **absolute paths** for mounted directories.
 ```
 
 ## Other command line arguments
@@ -114,7 +114,7 @@ For example, if you wanted to specify the estimator to be `AFNI` instead of `nil
 
     docker run -it --rm neuroscout/neuroscout-cli run /out Mv3ev --n-cpus=15 --estimator=afni
 
-For more details on these arguments, see this [reference](usage.md).
+For more details on these arguments, see the [Neuroscout-CLI Usage reference](usage.md).
 
     
 

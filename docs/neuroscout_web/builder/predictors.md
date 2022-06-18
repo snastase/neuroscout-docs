@@ -22,6 +22,6 @@ Since all datasets are pre-processed with `fmriprep`, use that as a search term 
 See the [fmriprep documentation](https://fmriprep.readthedocs.io/en/stable/outputs.html#confounds) for in-depth information about these `confound` variables.
 ```
 
-```{warning} Danger
+```{admonition} Danger
 Very large models with dozens of predictors may be slow to compile and fit. We recommend starting with smaller models and building up to larger models as you've gained experience.
 ```
