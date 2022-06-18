@@ -381,10 +381,13 @@
 <h1>Running Neuroscout-CLI on Singularity (High Performance Clusters)<a class="headerlink" href="#running-neuroscout-cli-on-singularity-high-performance-clusters" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Singularity must be available on your HPC. Contact your administrator.
-This guide is for Singularity &gt;= 2.5.
-</pre></div>
+<p>Singularity must be available on your HPC. Contact your administrator.
+This guide is for Singularity &gt;= 2.5.</p>
 </div>
+<div class="admonition-important admonition">
+<p class="admonition-title">Important</p>
+<p>HPCs typically require jobs to be submitted using a scheduled such as SLURM.
+This will not be covered in this guide, and will assume commands are run on compute nodes (via interactive sessions or submitted scripts)</p>
 </div>
 <div class="section" id="preparing-singularity-images">
 <h2>Preparing Singularity Images.<a class="headerlink" href="#preparing-singularity-images" title="Permalink to this headline">¶</a></h2>
@@ -403,13 +406,6 @@ You must specify a version.</p>
 <code class="docutils literal notranslate"><span class="pre">latest</span></code> refers to the latest <em>stable</em> release.</p>
 </div>
 </div>
-<div class="admonition-important admonition">
-<p class="admonition-title">Important</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HPCs typically require jobs to be submitted using a scheduled such as SLURM. 
-This will not be covered in this guide, and will assume commands are run on compute nodes (via interactive sessions or submitted scripts)
-</pre></div>
-</div>
-</div>
 <div class="section" id="executing-singularity-image">
 <h2>Executing Singularity image<a class="headerlink" href="#executing-singularity-image" title="Permalink to this headline">¶</a></h2>
 <p>Assuming you’ve already created an analysis on <a class="reference external" href="https://neuroscout.org">neuroscout.org</a>, and have its analysis id (e.g.: <code class="docutils literal notranslate"><span class="pre">Mv3ev</span></code>), you can run it in one line:</p>
@@ -421,9 +417,7 @@ This will not be covered in this guide, and will assume commands are run on comp
 The results will be automatically uploaded to NeuroVault, and the analysis page will link to this upload: <a class="reference external" href="https://neuroscout.org/builder/Mv3ev">https://neuroscout.org/builder/Mv3ev</a>.</p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`neuroscout-cli-&lt;version&gt;.simg` refers to a specific downloaded image on your system. 
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">neuroscout-cli-&lt;version&gt;.simg</span></code> refers to a specific downloaded image on your system.</p>
 </div>
 </div>
 <div class="section" id="saving-data-to-disk">

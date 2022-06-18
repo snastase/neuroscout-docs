@@ -407,9 +407,7 @@
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>You must have Docker installed on your system
-</pre></div>
-</div>
+<p>You must have Docker installed on your system</p>
 </div>
 <p>Assuming you’ve already created an analysis on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, you can run it in one line using the analysis_id (e.g.: <code class="docutils literal notranslate"><span class="pre">a54oo</span></code>):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -it -v /local/dir:/outdir neuroscout/neuroscout-cli run 5xH93 /outdir
@@ -438,9 +436,7 @@ If you omit version, the <em>latest</em> stable version will be downloaded.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`master` is a special tag name which refers to the most recent _unstable_ commit to GitHub. 
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">master</span></code> is a special tag name which refers to the most recent <em>unstable</em> commit to GitHub.</p>
 </div>
 </div>
 <div class="section" id="saving-outputs-to-disk">
@@ -454,10 +450,8 @@ To access files in the container, you must explicitly mount volumes from your sy
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>After the `run` command, we are telling _neuroscout-cli_ to save the outputs to the `/out` directory on `Docker`,
-which is mapped to `/home/user/out` on our local system.
-</pre></div>
-</div>
+<p>After the <code class="docutils literal notranslate"><span class="pre">run</span></code> command, we are telling <em>neuroscout-cli</em> to save the outputs to the <code class="docutils literal notranslate"><span class="pre">/out</span></code> directory on <code class="docutils literal notranslate"><span class="pre">Docker</span></code>,
+which is mapped to <code class="docutils literal notranslate"><span class="pre">/home/user/out</span></code> on our local system.</p>
 </div>
 <div class="section" id="output-derivative-structure">
 <h3>Output derivative structure<a class="headerlink" href="#output-derivative-structure" title="Permalink to this headline">¶</a></h3>
@@ -500,9 +494,7 @@ Given the <code class="docutils literal notranslate"><span class="pre">analysis_
 <p>The next time you run a model with a previously downloaded dataset, it will not need to re-download the fMRI data. </br></p>
 <div class="admonition-important admonition">
 <p class="admonition-title">Important</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Docker expects **absolute paths** for mounted directories
-</pre></div>
-</div>
+<p>Docker expects <strong>absolute paths</strong> for mounted directories</p>
 </div>
 </div>
 <div class="section" id="other-command-line-arguments">

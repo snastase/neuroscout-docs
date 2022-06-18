@@ -1,13 +1,13 @@
 # Running Neuroscout-CLI on Singularity (High Performance Clusters)
 
 ```{Note}
-    Singularity must be available on your HPC. Contact your administrator.
-    This guide is for Singularity >= 2.5.
+Singularity must be available on your HPC. Contact your administrator.
+This guide is for Singularity >= 2.5.
 ```
 ```{admonition} Important
-    HPCs typically require jobs to be submitted using a scheduled such as SLURM. 
-    This will not be covered in this guide, and will assume commands are run on compute nodes (via interactive sessions or submitted scripts)
-
+HPCs typically require jobs to be submitted using a scheduled such as SLURM. 
+This will not be covered in this guide, and will assume commands are run on compute nodes (via interactive sessions or submitted scripts)
+```
 
 ## Preparing Singularity Images.
 
@@ -42,7 +42,7 @@ This command will download the corresponding preprocessed images, event files an
 The results will be automatically uploaded to NeuroVault, and the analysis page will link to this upload: https://neuroscout.org/builder/Mv3ev.
 
 ```{admonition} Important
-    `neuroscout-cli-<version>.simg` refers to a specific downloaded image on your system. 
+`neuroscout-cli-<version>.simg` refers to a specific downloaded image on your system. 
 ```
 
 ## Saving data to disk

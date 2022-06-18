@@ -17,8 +17,8 @@ The top plot will give you an overview of the design matrix, with each column of
 In the bottom plot, you can explore the predictor time courses in more detail. By clicking on the legend on the right, you can select specific predictors to plot. You may shift-click to select multiple predictors at once.
 
 ```{Note}
-    For display purposes, each column is standardized prior to the creation of these plots, even if you did not request a `scale` transformation.
-    This force re-scaling will not be performed when creating the actual design matrix.
+For display purposes, each column is standardized prior to the creation of these plots, even if you did not request a `scale` transformation.
+This force re-scaling will not be performed when creating the actual design matrix.
 ```
 
 ### Correlation Matrix
@@ -29,7 +29,7 @@ The correlation matrix provides you an opportunity to review the covariance betw
 Note that predictors that are highly correlated with each other may result in a rank deficient design matrix which will cause model fitting to fail.
 
 ```{Hint}
-    Hover over values in the plot to see the correlation r-values.
+Hover over values in the plot to see the correlation r-values.
 ```
 
 ## Analysis Overview
@@ -39,6 +39,6 @@ Finally, a complete summary of your analysis is displayed in this tab. Here you 
 ![Review overview](img/review_overview.png)
 
 ```{Note}
-    Neuroscout stores your model design using BIDS Stats-Model, an in-development JSON standard for representing fMRI models.
-    This is the true, final representation of your model, so if you are having problems, or would like to meticulously review your analysis, review this section.
+Neuroscout stores your model design using BIDS Stats-Model, an in-development JSON standard for representing fMRI models.
+This is the true, final representation of your model, so if you are having problems, or would like to meticulously review your analysis, review this section.
 ```
