@@ -1,10 +1,10 @@
-# Getting started
+# Getting Started
 
-## Sign Up
+## Sign up
 
 First things first, you need to register for an account on [neuroscout.org](https://www.neuroscout.org).
 
-Currently, there are two supported options, the choice is yours!
+Currently, there are two supported options—the choice is yours!
 
 - Create an account using an email address and password (old fashioned way).
 - Use Google single sign on.
@@ -25,7 +25,7 @@ Once you've logged in, launch the [analysis builder](builder.md) using the `New 
 # Overview
 
 In the analysis builder, you'll sequentially advance through tabs as you define your analysis.
-Later in the process, you can always go back to tabs that you've previously encountered, and make modifications.
+Later in the process, you can always go back to tabs that you've previously encountered and make modifications.
 
 In the `Overview` tab, the first step is to give your analysis a `name`. This doesn't have to be a unique name (although that might be helpful), and you can always change it later.
 

@@ -14,10 +14,10 @@ You can use this to your advantage to share your analysis with your colleagues.
 
 If you agree to the terms, click `Generate` to submit.
 
-Be patient, analysis bundle generation may take a while.
+Be patient, as analysis bundle generation may take a while.
 If you're in a rush, and are willing to risk additional run-time errors, uncheck `Validate design matrix`.
 
-# After submission
+# After Submission
 
 After submitting your analysis, it will no longer be editable unless there is an error in your design that you must fix.
 

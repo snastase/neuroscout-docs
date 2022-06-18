@@ -57,7 +57,7 @@ Thus, you can simplify modify `<outdir>` to a directory of your choice:
 
 ## Caching input datasets
 
-If you wish to save the input preprocessed datasets elsewhere, simply specify a data installation directory with `--download-dir`L
+If you wish to save the input preprocessed datasets elsewhere, simply specify a data installation directory with `--download-dir`.
 
      singularity run --cleanenv neuroscout-cli-<version>.simg run --download-dir=/data Mv3ev /work/dir/out 
 
