@@ -32,5 +32,6 @@ Simply select a new dataset from the list, and advance to the `Predictors` tab.
 _Neuroscout_ will attempt to find the same predictors in this dataset, and pre-populate the list of selected predictors.
 If a given predictor cannot be found in this newly selected dataset, it will simply be removed from the model.  
 
-!!! Danger
+```{admonition} Danger
     If a predictor cannot be found in a new dataset, and is removed from the model, all contrasts involving that predictor will also be removed.
+```

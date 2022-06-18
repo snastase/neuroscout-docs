@@ -394,26 +394,38 @@ It may take a few minutes to receive the report.</p>
 <p>Here you can interactively review the final design matrix that will be fit at the first-level of your analysis.
 The top plot will give you an overview of the design matrix, with each column of the design matrix on the x-axis and time on the y-axis.</p>
 <p>In the bottom plot, you can explore the predictor time courses in more detail. By clicking on the legend on the right, you can select specific predictors to plot. You may shift-click to select multiple predictors at once.</p>
-<p>!!! Note
-For display purposes, each column is standardized prior to the creation of these plots, even if you did not request a <code class="docutils literal notranslate"><span class="pre">scale</span></code> transformation.
-This force re-scaling will not be performed when creating the actual design matrix.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>For display purposes, each column is standardized prior to the creation of these plots, even if you did not request a `scale` transformation.
+This force re-scaling will not be performed when creating the actual design matrix.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="correlation-matrix">
 <h3>Correlation Matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">¶</a></h3>
 <p><img alt="Correlation matrix" src="../../_images/review_cm.png" /></p>
 <p>The correlation matrix provides you an opportunity to review the covariance between your predictors.
 Note that predictors that are highly correlated with each other may result in a rank deficient design matrix which will cause model fitting to fail.</p>
-<p>!!! Hint
-Hover over values in the plot to see the correlation r-values.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hover over values in the plot to see the correlation r-values.
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="analysis-overview">
 <h2>Analysis Overview<a class="headerlink" href="#analysis-overview" title="Permalink to this headline">¶</a></h2>
 <p>Finally, a complete summary of your analysis is displayed in this tab. Here you can review all of the choices you’ve made and ensure you are happy with the analysis prior to continuing.</p>
 <p><img alt="Review overview" src="../../_images/review_overview.png" /></p>
-<p>!!! Note
-Neuroscout stores your model design using BIDS Stats-Model, an in-development JSON standard for representing fMRI models.
-This is the true, final representation of your model, so if you are having problems, or would like to meticulously review your analysis, review this section.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Neuroscout stores your model design using BIDS Stats-Model, an in-development JSON standard for representing fMRI models.
+This is the true, final representation of your model, so if you are having problems, or would like to meticulously review your analysis, review this section.
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

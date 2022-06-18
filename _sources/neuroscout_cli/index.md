@@ -32,9 +32,9 @@ A Google colab notebook is available [here](https://colab.research.google.com/gi
 
 ### Manually prepared environment
 
-!!! Danger
+```{admonition} Danger
     Manually installing _neuroscout-cli_ can be difficult due to complex dependencies. Proceed only if you really need to do this.
-
+```
 Use pip to install _neuroscout-cli_ directly from the GitHub repo:
 
     pip install git+https://www.github.com/neuroscout/neuroscout-cli

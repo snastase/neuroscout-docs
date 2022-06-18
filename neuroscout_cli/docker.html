@@ -405,8 +405,12 @@
 <h1>Running Neuroscout-CLI on Docker<a class="headerlink" href="#running-neuroscout-cli-on-docker" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="quickstart">
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
-<p>!!! Note
-You must have Docker installed on your system</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>You must have Docker installed on your system
+</pre></div>
+</div>
+</div>
 <p>Assuming you’ve already created an analysis on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, you can run it in one line using the analysis_id (e.g.: <code class="docutils literal notranslate"><span class="pre">a54oo</span></code>):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -it -v /local/dir:/outdir neuroscout/neuroscout-cli run 5xH93 /outdir
 </pre></div>
@@ -432,8 +436,12 @@ If you omit version, the <em>latest</em> stable version will be downloaded.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -it --rm neuroscout/neuroscout-cli:version-0.5.1 run Mv3ev /out
 </pre></div>
 </div>
-<p>!!! Note
-<code class="docutils literal notranslate"><span class="pre">master</span></code> is a special tag name which refers to the most recent <em>unstable</em> commit to GitHub.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`master` is a special tag name which refers to the most recent _unstable_ commit to GitHub. 
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="saving-outputs-to-disk">
 <h2>Saving outputs to disk<a class="headerlink" href="#saving-outputs-to-disk" title="Permalink to this headline">¶</a></h2>
@@ -444,9 +452,13 @@ To access files in the container, you must explicitly mount volumes from your sy
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -it --rm -v /home/user/out:/out neuroscout/neuroscout-cli run 5xH93 /out 
 </pre></div>
 </div>
-<p>!!! Note
-After the <code class="docutils literal notranslate"><span class="pre">run</span></code> command, we are telling <em>neuroscout-cli</em> to save the outputs to the <code class="docutils literal notranslate"><span class="pre">/out</span></code> directory on <code class="docutils literal notranslate"><span class="pre">Docker</span></code>,
-which is mapped to <code class="docutils literal notranslate"><span class="pre">/home/user/out</span></code> on our local system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>After the `run` command, we are telling _neuroscout-cli_ to save the outputs to the `/out` directory on `Docker`,
+which is mapped to `/home/user/out` on our local system.
+</pre></div>
+</div>
+</div>
 <div class="section" id="output-derivative-structure">
 <h3>Output derivative structure<a class="headerlink" href="#output-derivative-structure" title="Permalink to this headline">¶</a></h3>
 <p>Neuroscout creates a unique output directory <code class="docutils literal notranslate"><span class="pre">neuroscout-{analysis_id}</span></code> for each analysis.
@@ -486,8 +498,12 @@ Given the <code class="docutils literal notranslate"><span class="pre">analysis_
 </pre></div>
 </div>
 <p>The next time you run a model with a previously downloaded dataset, it will not need to re-download the fMRI data. </br></p>
-<p>!!! important
-Docker expects <strong>absolute paths</strong> for mounted directories</p>
+<div class="admonition-important admonition">
+<p class="admonition-title">Important</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Docker expects **absolute paths** for mounted directories
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="other-command-line-arguments">
 <h2>Other command line arguments<a class="headerlink" href="#other-command-line-arguments" title="Permalink to this headline">¶</a></h2>

@@ -27,6 +27,7 @@ If your analysis successfully compiles, an example `neuroscout-cli` command will
 
 For more information on how to execute an analysis, head over to the [Run analysis](../cli/index.md) section.
 
-!!! Note
+```{Note}
     After your analysis is compiled, you can change the public/private settings of your analysis, as well as edit the `name` and `description`.
     Also, notice the `Review` tab is still available.
+```

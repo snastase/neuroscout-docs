@@ -383,11 +383,15 @@
                 
   <div class="section" id="neuroscout-cli-usage">
 <h1>Neuroscout-CLI Usage<a class="headerlink" href="#neuroscout-cli-usage" title="Permalink to this headline">¶</a></h1>
-<p>!!! Note
-If you’re just starting out, we suggest you follow our <a class="reference internal" href="docker.html"><span class="doc std std-doc">Docker quickstart</span></a>.
-Remember that if you’re using Docker or Singularity, you will have to prepend the following
-commands with the respective container commands (e.g. <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">neuroscout/neuroscout-cli</span></code>),
-and mount the appropriate volumes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>If you&#39;re just starting out, we suggest you follow our [Docker quickstart](docker.md).
+Remember that if you&#39;re using Docker or Singularity, you will have to prepend the following
+commands with the respective container commands (e.g. `docker run -it neuroscout/neuroscout-cli`),
+and mount the appropriate volumes.
+</pre></div>
+</div>
+</div>
 <div class="section" id="neuroscout-cli-commands">
 <h2>Neuroscout-CLI commands<a class="headerlink" href="#neuroscout-cli-commands" title="Permalink to this headline">¶</a></h2>
 <p>Neuroscout-CLI has three commands: <code class="docutils literal notranslate"><span class="pre">run</span></code>, <code class="docutils literal notranslate"><span class="pre">get</span></code> and <code class="docutils literal notranslate"><span class="pre">upload</span></code>.</p>
@@ -466,9 +470,13 @@ analyses using <code class="docutils literal notranslate"><span class="pre">--do
 </div>
 <p>In this case, the fMRI dataset will be downloaded to <code class="docutils literal notranslate"><span class="pre">/home/user/data</span></code> and the output folder will be <code class="docutils literal notranslate"><span class="pre">/home/user/outputs/neuroscout-a54oo</span></code>,
 with the bundle contents saved in the output folder.</p>
-<p>!!! Note
-If you use the <code class="docutils literal notranslate"><span class="pre">get</span></code> command with <code class="docutils literal notranslate"><span class="pre">--download-dir</span></code>, be sure to also specify this directory when calling <code class="docutils literal notranslate"><span class="pre">run</span></code>, otherwise
-the data will be re-downloaded to the output directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>If you use the `get` command with `--download-dir`, be sure to also specify this directory when calling `run`, otherwise
+the data will be re-downloaded to the output directory.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="upload">
 <h3>Upload<a class="headerlink" href="#upload" title="Permalink to this headline">¶</a></h3>

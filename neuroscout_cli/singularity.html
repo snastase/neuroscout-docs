@@ -379,12 +379,13 @@
                 
   <div class="section" id="running-neuroscout-cli-on-singularity-high-performance-clusters">
 <h1>Running Neuroscout-CLI on Singularity (High Performance Clusters)<a class="headerlink" href="#running-neuroscout-cli-on-singularity-high-performance-clusters" title="Permalink to this headline">¶</a></h1>
-<p>!!! Note
-Singularity must be available on your HPC. Contact your administrator.
-This guide is for Singularity &gt;= 2.5.</p>
-<p>!!! important
-HPCs typically require jobs to be submitted using a scheduled such as SLURM.
-This will not be covered in this guide, and will assume commands are run on compute nodes (via interactive sessions or submitted scripts)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Singularity must be available on your HPC. Contact your administrator.
+This guide is for Singularity &gt;= 2.5.
+</pre></div>
+</div>
+</div>
 <div class="section" id="preparing-singularity-images">
 <h2>Preparing Singularity Images.<a class="headerlink" href="#preparing-singularity-images" title="Permalink to this headline">¶</a></h2>
 <p>Unlike <em>Docker</em>, you must explicitly download or compile Singularity images to a file prior to execution.</p>
@@ -396,9 +397,18 @@ This will not be covered in this guide, and will assume commands are run on comp
 <p>where <code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code> is the version of neuroscout-cli that you want to download.
 You must specify a version.</p>
 <p>You can see the tags available for download on <a class="reference external" href="https://github.com/neuroscout/neuroscout-cli/pkgs/container/neuroscout-cli">GitHub Packages</a>.</p>
-<p>!!! note
-<code class="docutils literal notranslate"><span class="pre">master</span></code> is a special tag name which refers to the most recent <em>unstable</em> commit to GitHub.
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">master</span></code> is a special tag name which refers to the most recent <em>unstable</em> commit to GitHub.
 <code class="docutils literal notranslate"><span class="pre">latest</span></code> refers to the latest <em>stable</em> release.</p>
+</div>
+</div>
+<div class="admonition-important admonition">
+<p class="admonition-title">Important</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HPCs typically require jobs to be submitted using a scheduled such as SLURM. 
+This will not be covered in this guide, and will assume commands are run on compute nodes (via interactive sessions or submitted scripts)
+</pre></div>
+</div>
 </div>
 <div class="section" id="executing-singularity-image">
 <h2>Executing Singularity image<a class="headerlink" href="#executing-singularity-image" title="Permalink to this headline">¶</a></h2>
@@ -409,8 +419,12 @@ You must specify a version.</p>
 <p>Where <code class="docutils literal notranslate"><span class="pre">&lt;outdir&gt;</span></code> is a directory you can save files to.</p>
 <p>This command will download the corresponding preprocessed images, event files and model specification, and fit a multi-level GLM model.
 The results will be automatically uploaded to NeuroVault, and the analysis page will link to this upload: <a class="reference external" href="https://neuroscout.org/builder/Mv3ev">https://neuroscout.org/builder/Mv3ev</a>.</p>
-<p>!!! important
-<code class="docutils literal notranslate"><span class="pre">neuroscout-cli-&lt;version&gt;.simg</span></code> refers to a specific downloaded image on your system.</p>
+<div class="admonition-important admonition">
+<p class="admonition-title">Important</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`neuroscout-cli-&lt;version&gt;.simg` refers to a specific downloaded image on your system. 
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="saving-data-to-disk">
 <h2>Saving data to disk<a class="headerlink" href="#saving-data-to-disk" title="Permalink to this headline">¶</a></h2>
