@@ -15,7 +15,7 @@ However, you can launch the analysis in "view-only" mode for any analysis, inclu
 Remember that for your analyses, you can always change the `name`, `description` and `public/private` status.
 
 ```{Note}
-    Instead of "editing" a `PASSED` analysis, you can use the [clone](clone.md) feature to make an editable copy.
+Instead of "editing" a `PASSED` analysis, you can use the [clone](clone.md) feature to make an editable copy.
 ```
 
 ## Deleting analyses

@@ -33,5 +33,5 @@ _Neuroscout_ will attempt to find the same predictors in this dataset, and pre-p
 If a given predictor cannot be found in this newly selected dataset, it will simply be removed from the model.  
 
 ```{admonition} Danger
-    If a predictor cannot be found in a new dataset, and is removed from the model, all contrasts involving that predictor will also be removed.
+If a predictor cannot be found in a new dataset, and is removed from the model, all contrasts involving that predictor will also be removed.
 ```
