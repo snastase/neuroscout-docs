@@ -1,31 +1,31 @@
 root: index
 format: jb-book
 chapters:
-- file: neuroscout_overview/neuroscout_overview
-- file: neuroscout_web/neuroscout_web
+- file: overview/ecosystem
+- file: web/index
   sections:
-  - file: neuroscout_web/builder/analyze
+  - file: web/builder/analyze
     sections:
-    - file: neuroscout_web/builder/index
-    - file: neuroscout_web/builder/predictors
-    - file: neuroscout_web/builder/transformations
-    - file: neuroscout_web/builder/hrf
-    - file: neuroscout_web/builder/contrasts
-    - file: neuroscout_web/builder/review
-    - file: neuroscout_web/builder/run
-    - file: neuroscout_web/builder/bib
-  - file: neuroscout_web/browse/browse_manage  
+    - file: web/builder/intro
+    - file: web/builder/predictors
+    - file: web/builder/transformations
+    - file: web/builder/hrf
+    - file: web/builder/contrasts
+    - file: web/builder/review
+    - file: web/builder/run
+    - file: web/builder/bib
+  - file: web/browse/browse_manage  
     sections:
-      - file: neuroscout_web/browse/index
-      - file: neuroscout_web/browse/clone
-- file: neuroscout_cli/neuroscout_cli
+      - file: web/browse/index
+      - file: web/browse/clone
+- file: cli/index
   sections:
-  - file: neuroscout_cli/index
-  - file: neuroscout_cli/docker
-  - file: neuroscout_cli/singularity
-  - file: neuroscout_cli/Neuroscout_CLI_Colab_Demo
-  - file: neuroscout_cli/usage
-- file: python_api/python_api
+  - file: cli/intro
+  - file: cli/docker
+  - file: cli/singularity
+  - file: cli/Neuroscout_CLI_Colab_Demo
+  - file: cli/usage
+- file: python_api/index
   sections:
   - file: python_api/python_api_basic
   - file: python_api/python_api_advanced
