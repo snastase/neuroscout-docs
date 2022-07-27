@@ -13,6 +13,11 @@ After you generate an analysis, a "Bibliography" tab will be shown which will au
 the dataset, feature extractors, and scientific software used for that analysis. In addition to these references,
 be sure to include the unique analysis ID associated with any results.
 
+Also, be sure to cite the Neuroscout platform as follows:
+
+*Neuroscout, a unified platform for generalizable and reproducible fMRI research.* Alejandro de la Vega, Roberta Rocca, Ross W. Blair, Christopher J. Markiewicz, Jeff Mentch, James D. Kent, Peer Herholz, Satrajit S. Ghosh, Russell A. Poldrack, Tal Yarkoni.
+bioRxiv 2022.04.05.487222; doi: https://doi.org/10.1101/2022.04.05.487222 
+
 ### Are there any restrictions on analyses I've created?
 
 Yes. By using Neuroscout, you agree that once you have finalized and "compiled" an analysis, the analysis
