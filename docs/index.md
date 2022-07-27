@@ -1,14 +1,3 @@
-
-```{toctree}
----
-hidden: true
-includehidden: true
-titlesonly: true
----
-```
-<img src="https://neuroscout.org/static/neuroscout_simpler_dark_blue_medium.svg" alt="neuroscout logo" width="600" style="margin:0 0 0 0"/>
-
-
 [![License](https://img.shields.io/github/license/neuroscout/neuroscout)](https://github.com/neuroscout/neuroscout)
 
 # What is Neuroscout?
