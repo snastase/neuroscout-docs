@@ -34,6 +34,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",
+    "sphinx_design"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -101,3 +102,4 @@ myst_html_img_enable = True
 myst_deflist_enable = True
 myst_url_schemes = ("http", "https", "mailto")
 panels_add_boostrap_css = False
+myst_enable_extensions = ["colon_fence"]
