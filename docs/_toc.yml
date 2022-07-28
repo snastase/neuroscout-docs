@@ -1,9 +1,12 @@
 root: index
 format: jb-book
-chapters:
-- file: overview/ecosystem
-- file: web/index
-  sections:
+parts:
+- caption: Overview
+  chapters:
+  - file: overview/ecosystem
+  - file: overview/faq
+- caption: Neuroscout Web
+  chapters:
   - file: web/builder/analyze
     sections:
     - file: web/builder/intro
@@ -14,19 +17,18 @@ chapters:
     - file: web/builder/review
     - file: web/builder/run
     - file: web/builder/bib
-  - file: web/browse/browse_manage  
+  - file: web/browse/browse_manage
     sections:
-      - file: web/browse/index
-      - file: web/browse/clone
-- file: cli/index
-  sections:
+    - file: web/browse/index
+    - file: web/browse/clon
+- caption: Running analyses
+  chapters:
   - file: cli/intro
   - file: cli/docker
   - file: cli/singularity
   - file: cli/Neuroscout_CLI_Colab_Demo
   - file: cli/usage
-- file: python_api/index
-  sections:
+- caption: Python API
+  chapters:
   - file: python_api/python_api_basic
   - file: python_api/python_api_advanced
-- file: faq
