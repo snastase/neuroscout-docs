@@ -7,7 +7,7 @@ parts:
   - file: overview/faq
 - caption: Neuroscout Web
   chapters:
-  - file: web/builder/analyze
+  - file: web/builder/index
     sections:
     - file: web/builder/intro
     - file: web/builder/predictors
@@ -17,18 +17,19 @@ parts:
     - file: web/builder/review
     - file: web/builder/run
     - file: web/builder/bib
-  - file: web/browse/browse_manage
+  - file: web/browse/index
     sections:
-    - file: web/browse/index
+    - file: web/browse/intro
     - file: web/browse/clon
-- caption: Running analyses
+- caption: "CLI: Running analyses"
   chapters:
   - file: cli/intro
   - file: cli/docker
   - file: cli/singularity
   - file: cli/Neuroscout_CLI_Colab_Demo
   - file: cli/usage
-- caption: Python API
+- caption: "pyNS: Python API"
   chapters:
-  - file: python_api/python_api_basic
-  - file: python_api/python_api_advanced
+  - file: python_api/api_basic
+  - file: python_api/api_advanced
+  - file: python_api/reference.md
