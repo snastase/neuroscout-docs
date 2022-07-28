@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://neuroscout.github.io/neuroscout-docs/index.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview &amp; ecosystem" href="overview/ecosystem.html" />
+    <link rel="next" title="Ecosystem" href="overview/ecosystem.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -112,15 +112,32 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="overview/ecosystem.html">
-   Overview &amp; ecosystem
+   Ecosystem
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview/faq.html">
+   Frequently Asked Questions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Neuroscout Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="web/index.html">
-   Web-based platform
+  <a class="reference internal" href="web/builder/analyze.html">
+   Creating analyzes
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -128,144 +145,112 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="web/builder/analyze.html">
-     Creating analyzes
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="web/builder/intro.html">
-       Getting Started
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="web/builder/predictors.html">
-       Select Predictors
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="web/builder/transformations.html">
-       Add Transformations
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="web/builder/hrf.html">
-       HRF Convolution
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="web/builder/contrasts.html">
-       Contrasts
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="web/builder/review.html">
-       Review
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="web/builder/run.html">
-       Run / Status
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="web/builder/bib.html">
-       Bibliography
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="web/browse/browse_manage.html">
-     Browse &amp; manage
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="web/browse/index.html">
-       Browsing analyses
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="web/browse/clone.html">
-       Cloning analyses
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="cli/index.html">
-   Running analyses
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="cli/intro.html">
-     Neuroscout-cli
+    <a class="reference internal" href="web/builder/intro.html">
+     Getting Started
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="cli/docker.html">
-     Running Neuroscout-CLI on Docker
+    <a class="reference internal" href="web/builder/predictors.html">
+     Select Predictors
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="cli/singularity.html">
-     Running Neuroscout-CLI on Singularity (High Performance Clusters)
+    <a class="reference internal" href="web/builder/transformations.html">
+     Add Transformations
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="cli/Neuroscout_CLI_Colab_Demo.html">
-     Run Neuroscout on Google Colab
+    <a class="reference internal" href="web/builder/hrf.html">
+     HRF Convolution
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="cli/usage.html">
-     Neuroscout-CLI Usage
+    <a class="reference internal" href="web/builder/contrasts.html">
+     Contrasts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="web/builder/review.html">
+     Review
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="web/builder/run.html">
+     Run / Status
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="web/builder/bib.html">
+     Bibliography
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="python_api/index.html">
-   Python API
+  <a class="reference internal" href="web/browse/browse_manage.html">
+   Browse &amp; manage
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="python_api/python_api_basic.html">
-     Basic use cases
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_api/python_api_advanced.html">
-     Advanced use cases
+    <a class="reference internal" href="web/browse/index.html">
+     Browsing analyses
     </a>
    </li>
   </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Running analyses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli/intro.html">
+   Neuroscout-cli
+  </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="faq.html">
-   Frequently Asked Questions
+  <a class="reference internal" href="cli/docker.html">
+   Running Neuroscout-CLI on Docker
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli/singularity.html">
+   Running Neuroscout-CLI on Singularity (High Performance Clusters)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli/Neuroscout_CLI_Colab_Demo.html">
+   Run Neuroscout on Google Colab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cli/usage.html">
+   Neuroscout-CLI Usage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Python API
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_api/python_api_basic.html">
+   Basic use cases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_api/python_api_advanced.html">
+   Advanced use cases
   </a>
  </li>
 </ul>
@@ -501,6 +486,12 @@ to report bugs or request new features.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -533,7 +524,7 @@ to report bugs or request new features.</p>
     <a class='right-next' id="next-link" href="overview/ecosystem.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Overview &amp; ecosystem</p>
+        <p class="prev-next-title">Ecosystem</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
