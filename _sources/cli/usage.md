@@ -1,4 +1,4 @@
-# Neuroscout-CLI Usage
+# Usage Reference
 
 ```{Note}
 If you're just starting out, we suggest you follow our [Docker quickstart](docker.md).

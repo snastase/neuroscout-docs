@@ -1,4 +1,4 @@
-# Running Neuroscout-CLI on Singularity (High Performance Clusters)
+# Singularity for HPCs
 
 ```{Note}
 Singularity must be available on your HPC. Contact your administrator.

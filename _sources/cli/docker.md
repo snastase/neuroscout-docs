@@ -1,4 +1,4 @@
-# Running Neuroscout-CLI on Docker
+# Portable Docker Execution
 
 ## Quickstart
 
