@@ -5,7 +5,7 @@ parts:
   chapters:
   - file: overview/ecosystem
   - file: overview/faq
-- caption: Neuroscout Web
+- caption: Neuroscout.org
   chapters:
   - file: web/builder/index
     sections:
@@ -18,9 +18,9 @@ parts:
     - file: web/builder/run
     - file: web/builder/bib
   - file: web/browse/index
-    sections:
+    sections: 
     - file: web/browse/intro
-    - file: web/browse/clon
+    - file: web/browse/clone
 - caption: "CLI: Running analyses"
   chapters:
   - file: cli/intro

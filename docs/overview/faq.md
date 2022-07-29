@@ -30,7 +30,7 @@ a link to the corresponding analysis page(s) on the NeuroScout website.
 
 ### I have a naturalistic study I'd like to share on Neuroscout. How do I do so?
 
-Due to the financial cost of extracting features from multi-modal stimuli using external APIs, the set of
+Due to the cost of extracting features from multi-modal stimuli using external APIs, the set of
 datasets we support is manually curated. However, we are continually expanding the list of supported
 datasets, and we encourage researchers to contact us if they want to make their data available for use in
 Neuroscout. Note that it is much easier for us to ingest datasets that are already deposited in the
@@ -41,7 +41,7 @@ Neuroscout.
 ### I want to make changes to an analysis I already ran, but it is locked. How can I edit it?
 
 Once an analysis has been run, it is permanently locked and archived for provenance. You may "clone" your
-analysis, and make changes to this new copy of your analysis.
+analysis, and make changes to this new copy of your analysis. This iterative workflow ensures the provenance of existing analyses, while allowing users the flexibilty to continue to modify and improve models. 
 
 ### I want to make one of my "private" analyses public, but the website says the analysis is "locked"!
 
@@ -74,8 +74,9 @@ paper:
 
 ### Am I restricted to mass univariate GLMs, or can I use Neuroscout to specify other kinds of analyses?
 
-Currently, that is the case. However,the underlying BIDS-StatsModel is designed with more complex
-models in mind, such as predictive and linear-mixed effect models.
+Currently, that is the primary analysis mode of Neuroscout. However, the underlying BIDS-StatsModel is designed with more complex models in mind, such as predictive and linear-mixed effect models. 
+
+In addition, using pyNS, users are free to access the Neuroscout API and develop novel analysis workflows using extracted Predictors and Datasets. The Neuroscout team is also actively expanding the types of models that can be created to including predictive encoding and decoding multivariate models.
 
 
 ### Can I contribute my own predictors to Neuroscout?
