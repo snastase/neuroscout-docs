@@ -22,7 +22,7 @@ Note that Google accounts are currently not supported by the `Neuroscout API` wr
 Once you've logged in, launch the [analysis builder](builder.md) using the `New Analysis` navigation button.
 
 
-# Overview
+## Overview
 
 In the analysis builder, you'll sequentially advance through tabs as you define your analysis.
 Later in the process, you can always go back to tabs that you've previously encountered and make modifications.
@@ -31,7 +31,7 @@ In the `Overview` tab, the first step is to give your analysis a `name`. This do
 
 Optionally, also give your analysis a `description`. If you make many analyses, this could be very helpful.
 
-## Choosing a dataset
+### Choosing a dataset
 
 ![Choose a dataset](img/datasets.png)
 
@@ -44,7 +44,7 @@ All datasets are minimally preprocessed using [fmriprep](https://fmriprep.org/en
 
 If you have a dataset you'd like to contribute, see this [frequently asked question](../faq.md#i-have-a-naturalistic-study-id-like-to-share-on-neuroscout-how-do-i-do-so).
 
-## Selecting task and runs
+### Selecting task and runs
 
 Once you've selected a `dataset`, you'll be able to choose which `task` and `runs` you want to analyze.
 
@@ -60,7 +60,7 @@ If you'd like to select groups of runs based on their `BIDS` entities (e.g. `Sub
 
 You can clear all filters and select all `run`s by clicking `Clear Filters` on the bottom left.
 
-## Saving and unique ID
+### Saving and unique ID
 
 To save your nascent analysis, click on the "Save" button. If the button is blue, that means there are unsaved changes.
 

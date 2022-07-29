@@ -1,10 +1,8 @@
 # Usage Reference
 
 ```{Note}
-If you're just starting out, we suggest you follow our [Docker quickstart](docker.md).
-Remember that if you're using Docker or Singularity, you will have to prepend the following
-commands with the respective container commands (e.g. `docker run -it neuroscout/neuroscout-cli`) 
-and mount the appropriate volumes.
+If you're just starting out, we suggest you follow our [Docker quickstart](docker.md) or try 
+the [Google Colab](Neuroscout_CLI_Colab_Demo.ipynb) Cloud demo.
 ```
 
 ## Neuroscout-CLI commands

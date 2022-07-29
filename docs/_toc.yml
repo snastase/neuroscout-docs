@@ -30,6 +30,5 @@ parts:
   - file: cli/usage
 - caption: "pyNS: Python API"
   chapters:
-  - file: python_api/api_basic
-  - file: python_api/api_advanced
+  - file: python_api/overview
   - file: python_api/reference.md
