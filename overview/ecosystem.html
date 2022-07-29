@@ -132,7 +132,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Neuroscout Web
+  Neuroscout.org
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -201,6 +201,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../web/browse/intro.html">
      Browsing analyses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/browse/clone.html">
+     Cloning analyses
     </a>
    </li>
   </ul>
@@ -382,12 +387,63 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#neuroscout-org">
+   neuroscout.org
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-builder">
+     Analysis Builder
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#neuroscout-api">
+     Neuroscout API
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#neuroscout-cli">
+   Neuroscout-CLI
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pyns">
+   pyNS
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -399,6 +455,46 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#neuroscout-org">
+   neuroscout.org
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-builder">
+     Analysis Builder
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#neuroscout-api">
+     Neuroscout API
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#neuroscout-cli">
+   Neuroscout-CLI
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pyns">
+   pyNS
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -408,6 +504,37 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="ecosystem">
 <h1>Ecosystem<a class="headerlink" href="#ecosystem" title="Permalink to this headline">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<p>Neuroscout is a platform for reproducible fMRI research, encompassing the lifecycle of analysis from model specification to estimation and sharing.</p>
+<p><img alt="ecosystem" src="../_images/neuroscout_ecosystem_paths.svg" /></p>
+<p>The platform is composed of two primary components: <strong><a class="reference external" href="http://neuroscout.org">neuroscout.org</a></strong>: an interactive model builder and data ingestion API; and <strong>Neuroscout-CLI</strong>: an automated model fitting workflow. In addition, <strong>PyNS (Python API)</strong> supports querying of the API and advanced model creation and model fitting workflows.</p>
+</section>
+<section id="neuroscout-org">
+<h2><a class="reference external" href="http://neuroscout.org">neuroscout.org</a><a class="headerlink" href="#neuroscout-org" title="Permalink to this headline">#</a></h2>
+<p>The <a class="reference external" href="http://neuroscout.org">neuroscout.org</a> server is the key central service in the ecosystem.</p>
+<section id="analysis-builder">
+<h3>Analysis Builder<a class="headerlink" href="#analysis-builder" title="Permalink to this headline">#</a></h3>
+<p>As an end user, you’ll use the <a class="reference external" href="http://neuroscout.org">neuroscout.org</a> analysis builder–an easy-to-use and interactive web application. On <a class="reference external" href="http://neuroscout.org">neuroscout.org</a> you can <a class="reference internal" href="../web/builder/intro.html"><span class="doc std std-doc">create analyses</span></a> as well as <a class="reference internal" href="../web/builder/intro.html"><span class="doc std std-doc">browse &amp; manage</span></a> existing analyses. If you’re a first time user, head there to build your first analysis and get started!</p>
+</section>
+<section id="neuroscout-api">
+<h3>Neuroscout API<a class="headerlink" href="#neuroscout-api" title="Permalink to this headline">#</a></h3>
+<p>These services are supported by the <strong>Neuroscout API</strong>, which makes available all the datasets &amp; predictors through a programmatic interface. The Neuroscout API indexes a curated set of BIDS fMRI datasets, sourced primarily from <a class="reference external" href="https://openneuro.org/">OpenNeuro</a> &amp; <a class="reference external" href="https://datalad.org">DataLad</a> repositories. All datasets are <a class="reference external" href="https://github.com/neuroscout-datasets/">pre-processed</a> and ingested into a SQL database.</p>
+<p>In naturalistic datasets, novel features are extracted from the stimuli using <a class="reference external" href="https://www.github.com/PsychoinformaticsLab/pliers">Pliers</a>– an expandable library for feature extraction which spans a wide range of state-of-the-art machine learning algorithms.</p>
+<p>The Neuroscout API and Documentation can be accessed at <a class="reference external" href="https://neuroscout.org/api/">https://neuroscout.org/api/</a>. Access is facilitated in Python by the PyNS library. You can also <a class="reference external" href="https://neuroscout.org/datasets">browse datasets</a> and <a class="reference external" href="https://neuroscout.org/predictors">explore predictors</a> on the neuroscout website.</p>
+</section>
+</section>
+<section id="neuroscout-cli">
+<h2>Neuroscout-CLI<a class="headerlink" href="#neuroscout-cli" title="Permalink to this headline">#</a></h2>
+<p>The <a class="reference internal" href="../cli/intro.html"><span class="doc std std-doc">Neuroscout-CLI</span></a> is a portable analysis engine which supports the execution of analyses created on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>.</p>
+<p>Neuroscout-CLI makes it easy to run your analysis with no configuration by fetching a self-contained analysis bundle, and downloading the required preprocessed fMRI data. Internally, we use <a class="reference external" href="https://github.com/poldracklab/fitlins">FitLins</a>–a NiPype pipeline for fMRI analysis in BIDS–to fit a statistical model to the fMRI data, and produce comprehensive reports. Neuroscout-CLI automatically uploads the resulting images to Neurovault, and links them to the analysis listing, making it easy to view and share your results.</p>
+</section>
+<section id="pyns">
+<h2>pyNS<a class="headerlink" href="#pyns" title="Permalink to this headline">#</a></h2>
+<p>pyNS is the Python library for Neuroscout, supporting programmatic access of the Neuroscout API in Python. Serving as the interface for the Neuroscout API, pyNS is used by Neuroscout-CLI to communicate with the Neuroscout server, and push back results to Neurovault.</p>
+<p>Advanced end-users can use pyNS directly instead of the <a class="reference external" href="http://neuroscout.org">neuroscout.org</a> analysis builder in order to programmaticaly build analyses. This is useful for users that wish to create a large number of analyses, or want to create models which are not supported by the streamlined web-bsed analysis builder.</p>
+<p>As Neuroscout continues to evolve, we aim to support a broader set of models (e.g. encoding models), which may not yet be supported by the Neuroscout analysis builder, or Neuroscout-CLI. pyNS provides the flexibly for developers to create novel workflows such as these, which can later be incorporated upstream as a primary mode of use for the platform.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
