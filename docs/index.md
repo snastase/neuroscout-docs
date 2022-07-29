@@ -9,7 +9,7 @@ titlesonly: true
 
 ![logo](static/neuroscout_docs_paths.svg)
 
-## What is Neuroscout?
+# What is Neuroscout?
 
 Neuroscout is an end-to-end platform for analysis of naturalistic public fMRI datasets.
 
@@ -46,18 +46,18 @@ We make it easy to _share the results_ with interactive reports and automatic up
 :class-header: bg-light
 **🚀 Get started**
 ^^^
-**[Web builder](web/builder/intro.md)**: Create a custom analysis
+**[neuroscout.org builder](web/builder/intro.md)**: Create a custom analysis
 
 **[Neuroscout-CLI](cli/intro.md)**: Run your analysis
 
-**[Python API](python_api/python_api_basic.md)**: Advanced use cases
+**[Python API](python_api/api_basic.md)**: Advanced use cases
 
 :::
 
 ::::
 
 
-### Where can I get more help?
+## Where can I get more help?
 Connect with us by asking a question on  [NeuroStars](https://neurostars.org/tag/neuroscout) or [open an issue on GitHub](https://github.com/neuroscout/neuroscout/issues)
 to report bugs or request new features. 
 
