@@ -30,11 +30,12 @@ First, check with your HPC administrator that _Singularity_ is available for use
 
 A Google colab notebook is available [here](https://colab.research.google.com/github/neuroscout/neuroscout-cli/blob/master/examples/Neuroscout_Colab_Demo_NoMount.ipynb) where you can run a sample pre-generated analysis with an already provided id or provide your own analysis id. To run your own analysis, copy your id into the field in the cell labelled _1) Set Neuroscout Analysis ID_ and then run all of the cells. The provided id will run 10 subjects and 1 run from the Budapest dataset, and may take around 15 minutes. Larger analyses will take longer due to the limited free resources.
 
-### Manually prepared environment
+### Manually prepared environment using pip
 
 ```{admonition} Danger
-Manually installing _neuroscout-cli_ can be difficult due to complex dependencies. Proceed only if you really need to do this.
+Manually installing _neuroscout-cli_ can be difficult due to complex dependencies in the SciPy stack, or fMRI-specific tooling. 
+Proceed only if you know what you're doing.
 ```
-Use pip to install _neuroscout-cli_ directly from the GitHub repo:
+Use pip to install _neuroscout-cli_ from PyPI:
 
-    pip install git+https://www.github.com/neuroscout/neuroscout-cli
+    pip install neuroscout-cli
