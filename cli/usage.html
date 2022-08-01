@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://neuroscout.github.io/neuroscout-docs/cli/usage.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Basic use" href="../python_api/api_basic.html" />
+    <link rel="next" title="Overview" href="../python_api/overview.html" />
     <link rel="prev" title="Cloud execution on Google Colab" href="Neuroscout_CLI_Colab_Demo.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -250,18 +250,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../python_api/api_basic.html">
-   Basic use
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../python_api/api_advanced.html">
-   Advanced use
+  <a class="reference internal" href="../python_api/overview.html">
+   Overview
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../python_api/reference.html">
-   Usage reference
+   Usage &amp; API Reference
   </a>
  </li>
 </ul>
@@ -387,68 +382,12 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#neuroscout-cli-commands">
-   Neuroscout-CLI commands
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-command">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       run
-      </span>
-     </code>
-     command
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-command">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       get
-      </span>
-     </code>
-     command
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#upload-command">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       upload
-      </span>
-     </code>
-     command
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
@@ -460,51 +399,6 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#neuroscout-cli-commands">
-   Neuroscout-CLI commands
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-command">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       run
-      </span>
-     </code>
-     command
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-command">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       get
-      </span>
-     </code>
-     command
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#upload-command">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       upload
-      </span>
-     </code>
-     command
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -514,121 +408,13 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="usage-reference">
 <h1>Usage Reference<a class="headerlink" href="#usage-reference" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://neuroscout-cli.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/neuroscout-cli/badge/?version=latest&amp;style=flat" /></a> <a class="reference external" href="https://badge.fury.io/py/neuroscout_cli"><img alt="PyPI version" src="https://badge.fury.io/py/neuroscout_cli.svg" /></a></p>
+<p>For comprehensive reference of <em>Neuroscout-CLI</em> , please visit the official <a class="reference external" href="https://neuroscout-cli.readthedocs.io/en/latest/">Neuroscout-CLI Documentation</a> on ReadTheDocs. These docs are updated as new Neuroscout-CLI versions are released.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you’re just starting out, we suggest you follow our <a class="reference internal" href="docker.html"><span class="doc std std-doc">Docker quickstart</span></a>.
-Remember that if you’re using Docker or Singularity, you will have to prepend the following
-commands with the respective container commands (e.g. <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">neuroscout/neuroscout-cli</span></code>)
-and mount the appropriate volumes.</p>
+<p>If you’re just starting out, we suggest you follow our <a class="reference internal" href="docker.html"><span class="doc std std-doc">Docker quickstart</span></a> or try
+the <a class="reference internal" href="Neuroscout_CLI_Colab_Demo.html"><span class="doc std std-doc">Google Colab</span></a> Cloud demo.</p>
 </div>
-<section id="neuroscout-cli-commands">
-<h2>Neuroscout-CLI commands<a class="headerlink" href="#neuroscout-cli-commands" title="Permalink to this headline">#</a></h2>
-<p>Neuroscout-CLI has three commands: <code class="docutils literal notranslate"><span class="pre">run</span></code>, <code class="docutils literal notranslate"><span class="pre">get</span></code> and <code class="docutils literal notranslate"><span class="pre">upload</span></code>.</p>
-<p>By default, <code class="docutils literal notranslate"><span class="pre">run</span></code> will automatically use <code class="docutils literal notranslate"><span class="pre">get</span></code> to fetch the required inputs and automatically <code class="docutils literal notranslate"><span class="pre">upload</span></code> results after execution.
-Thus, in most cases, the <code class="docutils literal notranslate"><span class="pre">run</span></code> command is all you need.</p>
-<p>Let’s step through each command:</p>
-<section id="run-command">
-<h3><code class="docutils literal notranslate"><span class="pre">run</span></code> command<a class="headerlink" href="#run-command" title="Permalink to this headline">#</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage: neuroscout run [OPTIONS] [FITLINS_OPTIONS]... ANALYSIS_ID OUT_DIR
-
-  Run an analysis.
-
-  Automatically gets inputs and uploads results to NeuroVault by default.
-
-  This command uses FitLins for execution. Thus, any valid options can be
-  passed through in [FITLINS_OPTIONS].
-
-  Note: `--model`, `--derivatives` and `--ignore` and positional arguments
-  are automatically configured.
-
-  Example:
-
-      neuroscout run --force-upload --n-cpus=3 a54oo /out
-
-  If using Docker, remember to map local volumes to save outputs:
-
-      docker run --rm -it -v /local/dir:/out neuroscout/neuroscout-cli run
-      a54oo /out
-
-Options:
-  --download-dir PATH   Directory to cache input datasets, instead of OUT_DIR
-  --no-get              Don&#39;t automatically fetch bundle &amp; dataset
-  --force-upload        Force upload even if a NV collection already exists
-  --no-upload           Don&#39;t upload results to NeuroVault
-  --upload-first-level  Upload first-level results, in addition to group
-  --fitlins-help        Display FitLins help and options
-  --help                Show this message and exit.
-</pre></div>
-</div>
-<p>The run command will first call <code class="docutils literal notranslate"><span class="pre">get</span></code> to download the necessary data.
-Next, <code class="docutils literal notranslate"><span class="pre">run</span></code> will call FitLins for execution. As noted, you may pass any valid options to FitLins at runtime.
-To see which options are available in FitLins, use <code class="docutils literal notranslate"><span class="pre">--fitlins-help</span></code>.</p>
-<p>Note that certain arguments to FitLins are automatically pre-set, as they are required by Neuroscout.</p>
-<p>After FitLins completes, <code class="docutils literal notranslate"><span class="pre">run</span></code> will automatically upload the results using the <code class="docutils literal notranslate"><span class="pre">upload</span></code> command.</p>
-<p>See each command below for more detail on downloading inputs, and uploading results.</p>
-</section>
-<section id="get-command">
-<h3><code class="docutils literal notranslate"><span class="pre">get</span></code> command<a class="headerlink" href="#get-command" title="Permalink to this headline">#</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage: neuroscout get [OPTIONS] ANALYSIS_ID OUT_DIR
-
-  Fetch analysis inputs.
-
-  Downloads the analysis bundle, preprocessed fMRI inputs, and configures
-  output directory.
-
-  Inputs are downloaded to the output directory under `sourcedata`. If you
-  run many analyses, you may wish to provide an `--download-dir` where
-  datasets can be cached across analyses.
-
-  Note: `run` automatically calls `get` prior to execution, by default.
-
-Options:
-  --download-dir PATH  Directory to cache input datasets, instead of OUT_DIR
-  --bundle-only        Only fetch analysis bundle, not imaging data
-  --help               Show this message and exit.
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">get</span></code> command prepares your system for analysis execution by 1) preparing the output directory, 2) downloading the analysis bundle (containing the BIDS StatsModel specification, event files, and more), and 3) downloading the preprocessed fMRI data.</p>
-<p>Note that only the specific files for that analysis will be download (i.e. only those runs/subjects)</p>
-<p>By default, the input fMRI data is downloaded to the output directory under <code class="docutils literal notranslate"><span class="pre">sourcedata</span></code>, forming a fully re-executable output.
-However, if you run many analyses with the same dataset, it can be useful to download the data to a common folder that can be re-used in other
-analyses using <code class="docutils literal notranslate"><span class="pre">--download-dir</span></code></p>
-<p>For example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>neuroscout get --download-dir /home/user/data a54oo /home/user/outputs
-</pre></div>
-</div>
-<p>In this case, the fMRI dataset will be downloaded to <code class="docutils literal notranslate"><span class="pre">/home/user/data</span></code> and the output folder will be <code class="docutils literal notranslate"><span class="pre">/home/user/outputs/neuroscout-a54oo</span></code>,
-with the bundle contents saved in the output folder.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>If you use the `get` command with `--download-dir`, be sure to also specify this directory when calling `run`, otherwise
-the data will be re-downloaded to the output directory.
-</pre></div>
-</div>
-</div>
-</section>
-<section id="upload-command">
-<h3><code class="docutils literal notranslate"><span class="pre">upload</span></code> command<a class="headerlink" href="#upload-command" title="Permalink to this headline">#</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage: neuroscout upload [OPTIONS] ANALYSIS_ID OUT_DIR
-
-  Upload results.
-
-  This command can be used to upload existing results to NeuroVault.
-
-  Note: `run` automatically calls `upload` after execution, by default.
-
-Options:
-  --force-upload        Force upload even if a NV collection already exists
-  --no-upload           Don&#39;t upload results to NeuroVault
-  --upload-first-level  Upload first-level results, in addition to group
-  --help                Show this message and exit.
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">upload</span></code> command may be useful in case the <code class="docutils literal notranslate"><span class="pre">run</span></code> command experienced an error uploading results,
-particularly if there was a connection error, and you wish to try again.</p>
-<p>Otherwise, it’s typically reccomended to let the <code class="docutils literal notranslate"><span class="pre">run</span></code> command automatically upload results.</p>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -665,10 +451,10 @@ particularly if there was a connection error, and you wish to try again.</p>
             <p class="prev-next-title">Cloud execution on Google Colab</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../python_api/api_basic.html" title="next page">
+    <a class='right-next' id="next-link" href="../python_api/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Basic use</p>
+        <p class="prev-next-title">Overview</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

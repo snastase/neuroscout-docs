@@ -250,18 +250,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../python_api/api_basic.html">
-   Basic use
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../python_api/api_advanced.html">
-   Advanced use
+  <a class="reference internal" href="../python_api/overview.html">
+   Overview
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../python_api/reference.html">
-   Usage reference
+   Usage &amp; API Reference
   </a>
  </li>
 </ul>
@@ -437,8 +432,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#manually-prepared-environment">
-     Manually prepared environment
+    <a class="reference internal nav-link" href="#manually-prepared-environment-using-pip">
+     Manually prepared environment using pip
     </a>
    </li>
   </ul>
@@ -490,8 +485,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#manually-prepared-environment">
-     Manually prepared environment
+    <a class="reference internal nav-link" href="#manually-prepared-environment-using-pip">
+     Manually prepared environment using pip
     </a>
    </li>
   </ul>
@@ -512,34 +507,38 @@ title="Print to PDF"
 <p><em>neuroscout-cli</em> makes it easy to run your analysis with no configuration by fetching a self-contained analysis bundle, and downloading the required preprocessed fMRI data using <a class="reference external" href="https://www.datalad.org/">DataLad</a>. <em>neuroscout-cli</em> internally uses <a class="reference external" href="https://github.com/poldracklab/fitlins">FitLins</a>, a python pipeline for fMRI analysis in BIDS, to fit a statistical model to the fMRI data, and produce comprehensive reports. <em>neuroscout-cli</em> automatically uploads the resulting images to <a class="reference external" href="https://www.neurovault.org/">Neurovault</a>, and links them to the analysis listing, making it easy to view and share your results.</p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
-<p>The recommended way to install and use <em>neuroscout-cli</em> is using containers (i.e. Docker or Singularity). Containers greatly facilitate the management of software dependencies, and increase reproducibility of results.</p>
-<p>You can also install <em>neuroscout-cli</em> directly on your system using a manually prepared environment, although this typically requires more effort.</p>
-<p>A third method of running analyses is Google Colab, though larger analyses will take longer to run using the limited free resources.</p>
+<p>The recommended way to install <code class="docutils literal notranslate"><span class="pre">Neuroscout-CLI</span></code> is using containers (i.e. Docker or Singularity) to facilitate dependency managment.</p>
+<p>For demonstration, it is possible to run <code class="docutils literal notranslate"><span class="pre">Neuroscout-CLI</span></code> in the cloud (for free!) using Google Colab.</p>
 <section id="containerized-execution">
 <h3>Containerized Execution<a class="headerlink" href="#containerized-execution" title="Permalink to this headline">#</a></h3>
 <section id="docker">
 <h4>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">#</a></h4>
-<p>For most systems, we recommend using <a class="reference external" href="https://www.docker.com/resources/what-container">Docker</a>. First, follow the instructions for installing <a class="reference external" href="https://docs.docker.com/engine/install/">Docker</a> on your system.</p>
-<p>Next, follow our guide for running <a class="reference internal" href="docker.html"><span class="doc std std-doc">Neuroscout on Docker</span></a>.</p>
+<p><img alt="DockerPulls" src="https://img.shields.io/docker/pulls/neuroscout/neuroscout-cli.svg" /></p>
+<p>For most systems (i.e. laptops and workstations), we recommend using <a class="reference external" href="https://www.docker.com/resources/what-container">Docker</a>.
+First, follow the instructions for installing <a class="reference external" href="https://docs.docker.com/engine/install/">Docker</a> on your system.</p>
+<p>Next, follow the <a class="reference internal" href="docker.html"><span class="doc std std-doc">Portable Docker Execution</span></a> guide in the Neuroscout Docs.</p>
 </section>
 <section id="singularity">
 <h4>Singularity<a class="headerlink" href="#singularity" title="Permalink to this headline">#</a></h4>
 <p><a class="reference external" href="https://sylabs.io/singularity/">Singularity</a> containers are a great solution for High Performance Computing (HPC) environments, where <em>Docker</em> cannot typically be used due to more tightly controlled <a class="reference external" href="https://researchcomputing.princeton.edu/support/knowledge-base/singularity">user privileges</a>.</p>
-<p>First, check with your HPC administrator that <em>Singularity</em> is available for use. If so, follow our guide for running <a class="reference internal" href="singularity.html"><span class="doc std std-doc">Neuroscout on Singularity</span></a>.</p>
+<p>First, check with your HPC administrator that <em>Singularity</em> is available for use. If so, follow our guide on <a class="reference internal" href="singularity.html"><span class="doc std std-doc">Singularity for HPCs</span></a> in the offical <a class="reference external" href="https://neuroscout.org/docs">Neuroscout Docs</a>.</p>
 </section>
 </section>
 <section id="google-colab">
 <h3>Google Colab<a class="headerlink" href="#google-colab" title="Permalink to this headline">#</a></h3>
-<p>A Google colab notebook is available <a class="reference external" href="https://colab.research.google.com/github/neuroscout/neuroscout-cli/blob/master/examples/Neuroscout_Colab_Demo_NoMount.ipynb">here</a> where you can run a sample pre-generated analysis with an already provided id or provide your own analysis id. To run your own analysis, copy your id into the field in the cell labelled <em>1) Set Neuroscout Analysis ID</em> and then run all of the cells. The provided id will run 10 subjects and 1 run from the Budapest dataset, and may take around 15 minutes. Larger analyses will take longer due to the limited free resources.</p>
+<p>To try Neuroscout without using any local resources, follow our interactive guide to <a class="reference internal" href="Neuroscout_CLI_Colab_Demo.html"><span class="doc std std-doc">Cloud execution on Google Colab</span></a>.</p>
+<p>Google Colab allows you to execute Jupyer Notebooks for free, using two CPUs for several hours. This should be sufficient for individual Neuroscout analyses. A small demonstration can be run live in ~15 mins.</p>
 </section>
-<section id="manually-prepared-environment">
-<h3>Manually prepared environment<a class="headerlink" href="#manually-prepared-environment" title="Permalink to this headline">#</a></h3>
+<section id="manually-prepared-environment-using-pip">
+<h3>Manually prepared environment using pip<a class="headerlink" href="#manually-prepared-environment-using-pip" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://badge.fury.io/py/neuroscout_cli"><img alt="PyPI version" src="https://badge.fury.io/py/neuroscout_cli.svg" /></a></p>
 <div class="admonition-danger admonition">
 <p class="admonition-title">Danger</p>
-<p>Manually installing <em>neuroscout-cli</em> can be difficult due to complex dependencies. Proceed only if you really need to do this.</p>
+<p>Manually installing <em>neuroscout-cli</em> can be difficult due to complex dependencies in the SciPy stack, or fMRI-specific tooling.
+Proceed only if you know what you’re doing.</p>
 </div>
-<p>Use pip to install <em>neuroscout-cli</em> directly from the GitHub repo:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install git+https://www.github.com/neuroscout/neuroscout-cli
+<p>Use pip to install <em>neuroscout-cli</em> from PyPI:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install neuroscout-cli
 </pre></div>
 </div>
 </section>

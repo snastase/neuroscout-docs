@@ -50,7 +50,7 @@ We make it easy to _share the results_ with interactive reports and automatic up
 
 **[Neuroscout-CLI](cli/intro.md)**: Run your analysis
 
-**[Python API](python_api/api_basic.md)**: Advanced use cases
+**[Python API](python_api/overview.md)**: Advanced usage
 
 :::
 

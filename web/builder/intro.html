@@ -250,18 +250,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../python_api/api_basic.html">
-   Basic use
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../python_api/api_advanced.html">
-   Advanced use
+  <a class="reference internal" href="../../python_api/overview.html">
+   Overview
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../python_api/reference.html">
-   Usage reference
+   Usage &amp; API Reference
   </a>
  </li>
 </ul>
@@ -409,34 +404,27 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Getting Started
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sign-up">
+   Sign up
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sign-up">
-     Sign up
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
    Overview
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#choosing-a-dataset">
      Choosing a dataset
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#selecting-task-and-runs">
      Selecting task and runs
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#saving-and-unique-id">
      Saving and unique ID
     </a>
@@ -462,34 +450,27 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Getting Started
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sign-up">
+   Sign up
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sign-up">
-     Sign up
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
    Overview
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#choosing-a-dataset">
      Choosing a dataset
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#selecting-task-and-runs">
      Selecting task and runs
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#saving-and-unique-id">
      Saving and unique ID
     </a>
@@ -527,15 +508,14 @@ title="Print to PDF"
 </div>
 <p>Once you’ve logged in, launch the <span class="xref myst">analysis builder</span> using the <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">Analysis</span></code> navigation button.</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
 <p>In the analysis builder, you’ll sequentially advance through tabs as you define your analysis.
 Later in the process, you can always go back to tabs that you’ve previously encountered and make modifications.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">Overview</span></code> tab, the first step is to give your analysis a <code class="docutils literal notranslate"><span class="pre">name</span></code>. This doesn’t have to be a unique name (although that might be helpful), and you can always change it later.</p>
 <p>Optionally, also give your analysis a <code class="docutils literal notranslate"><span class="pre">description</span></code>. If you make many analyses, this could be very helpful.</p>
 <section id="choosing-a-dataset">
-<h2>Choosing a dataset<a class="headerlink" href="#choosing-a-dataset" title="Permalink to this headline">#</a></h2>
+<h3>Choosing a dataset<a class="headerlink" href="#choosing-a-dataset" title="Permalink to this headline">#</a></h3>
 <p><img alt="Choose a dataset" src="../../_images/datasets.png" /></p>
 <p><code class="docutils literal notranslate"><span class="pre">Neuroscout</span></code> currently indexes a curated set of <a class="reference external" href="https://neuroscout.org/datasets">16 public naturalistic fMRI datasets</a>.</p>
 <p>Datasets were specifically chosen for their compliance to the <a class="reference external" href="https://bids.neuroimaging.io/">BIDS standard</a>, and availability of original naturalistic stimuli.
@@ -544,7 +524,7 @@ You can find detailed information on each dataset by clicking on the <code class
 <p>If you have a dataset you’d like to contribute, see this <a class="reference external" href="../faq.md#i-have-a-naturalistic-study-id-like-to-share-on-neuroscout-how-do-i-do-so">frequently asked question</a>.</p>
 </section>
 <section id="selecting-task-and-runs">
-<h2>Selecting task and runs<a class="headerlink" href="#selecting-task-and-runs" title="Permalink to this headline">#</a></h2>
+<h3>Selecting task and runs<a class="headerlink" href="#selecting-task-and-runs" title="Permalink to this headline">#</a></h3>
 <p>Once you’ve selected a <code class="docutils literal notranslate"><span class="pre">dataset</span></code>, you’ll be able to choose which <code class="docutils literal notranslate"><span class="pre">task</span></code> and <code class="docutils literal notranslate"><span class="pre">runs</span></code> you want to analyze.</p>
 <p>Currently, we only support analyzing one <code class="docutils literal notranslate"><span class="pre">task</span></code> at a time. By default, all <code class="docutils literal notranslate"><span class="pre">runs</span></code> for that <code class="docutils literal notranslate"><span class="pre">task</span></code> are selected.</p>
 <p>If you want to select specific <code class="docutils literal notranslate"><span class="pre">run</span></code>s to analyze, either to only analyze a subset of <code class="docutils literal notranslate"><span class="pre">subjects</span></code>, or to omit certain <code class="docutils literal notranslate"><span class="pre">run</span></code>s that might have a known issue, you can use the <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">selector</span> <span class="pre">interface</span></code>.</p>
@@ -554,12 +534,13 @@ If you’d like to select groups of runs based on their <code class="docutils li
 <p>You can clear all filters and select all <code class="docutils literal notranslate"><span class="pre">run</span></code>s by clicking <code class="docutils literal notranslate"><span class="pre">Clear</span> <span class="pre">Filters</span></code> on the bottom left.</p>
 </section>
 <section id="saving-and-unique-id">
-<h2>Saving and unique ID<a class="headerlink" href="#saving-and-unique-id" title="Permalink to this headline">#</a></h2>
+<h3>Saving and unique ID<a class="headerlink" href="#saving-and-unique-id" title="Permalink to this headline">#</a></h3>
 <p>To save your nascent analysis, click on the “Save” button. If the button is blue, that means there are unsaved changes.</p>
 <p><img alt="Select runs" src="../../_images/save.png" /></p>
 <p>When you first save your analysis, it will be assigned a unique, permanent <code class="docutils literal notranslate"><span class="pre">ID</span></code>.</p>
 <p>Note that when you advance through tabs in the builder, the analysis will be automatically saved.</p>
 <p>Click on the <code class="docutils literal notranslate"><span class="pre">Next</span></code> button to advance to the <code class="docutils literal notranslate"><span class="pre">Predictors</span></code> selection tab.</p>
+</section>
 </section>
 </section>
 

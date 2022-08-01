@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Basic use</title>
+    <title>Overview</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,10 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://neuroscout.github.io/neuroscout-docs/python_api/api_basic.html" />
+    <link rel="canonical" href="https://neuroscout.github.io/neuroscout-docs/python_api/overview.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Advanced use" href="api_advanced.html" />
+    <link rel="next" title="Usage &amp; API Reference" href="reference.html" />
     <link rel="prev" title="Usage Reference" href="../cli/usage.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -251,17 +251,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Basic use
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="api_advanced.html">
-   Advanced use
+   Overview
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="reference.html">
-   Usage reference
+   Usage &amp; API Reference
   </a>
  </li>
 </ul>
@@ -328,7 +323,7 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/neuroscout/neuroscout-docs/edit/main/docs/python_api/api_basic.md"
+<a href="https://github.com/neuroscout/neuroscout-docs/edit/main/docs/python_api/overview.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="bottom"
@@ -350,7 +345,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/python_api/api_basic.md"
+        <a href="../_sources/python_api/overview.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -387,23 +382,60 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#documentation">
+   Documentation
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Basic use</h1>
+                <h1>Overview</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#documentation">
+   Documentation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -411,8 +443,22 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="basic-use">
-<h1>Basic use<a class="headerlink" href="#basic-use" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://pyns.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/pyns/badge/?version=latest&amp;style=flat" /></a> <a class="reference external" href="https://badge.fury.io/py/pyNS"><img alt="PyPI version" src="https://badge.fury.io/py/pyNS.svg" /></a></p>
+<p><strong>pyNS</strong> is the Python client library for accessing the <a class="reference external" href="https://neuroscout.org/api">Neuroscout API</a>.</p>
+<p>At it’s most basic, <strong>pyNS</strong> facilitates making HTTP requests to the API, by pre-formulating requests, and making it accessible via an easy-to-use, Pythonic API. In addition, <strong>pyNS</strong> supports Neuroscout applications that interact with the API, such as <a class="reference internal" href="../cli/intro.html"><span class="doc std std-doc">Neuroscout-CLI</span></a>.</p>
+<p>For the end user, <strong>pyNS</strong> enables flexibly querying and interaction with the Neuroscout API, enabling several advanced cases not supports by the web-based application such as:</p>
+<ul class="simple">
+<li><p>Downloading data from Neuroscout, including full predictor time courses</p></li>
+<li><p>Batch-creation of analyses– particular useful for meta-analytic workflows which test the same analysis across datasets</p></li>
+<li><p>Full flexiblity in specification of BIDS StatsModels [<a class="reference external" href="https://bids-standard.github.io/stats-models/">https://bids-standard.github.io/stats-models/</a>]. This enables statistical models which may not be supported by the web app, but are valid and executabl models.</p></li>
+</ul>
+<p>In addition, for developers <strong>pyNS</strong> may enable the development of novel experimental applications that use Neuroscout API’s data. For example, there is ongoing work to develop an encoding analysis workflow in Neuroscout using <strong>pyNS</strong>.</p>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">#</a></h2>
+<p>The pyNS library provides its own complete documentation at <a class="reference external" href="https://pyns.readthedocs.io/en/latest/">ReadTheDocs</a>. Please refer to that for installation instructions, quickstart, and in depth reference.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -449,10 +495,10 @@ title="Print to PDF"
             <p class="prev-next-title">Usage Reference</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="api_advanced.html" title="next page">
+    <a class='right-next' id="next-link" href="reference.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Advanced use</p>
+        <p class="prev-next-title">Usage &amp; API Reference</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
