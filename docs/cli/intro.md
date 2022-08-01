@@ -6,35 +6,41 @@ _neuroscout-cli_ makes it easy to run your analysis with no configuration by fet
 
 ## Installation
 
-The recommended way to install and use _neuroscout-cli_ is using containers (i.e. Docker or Singularity). Containers greatly facilitate the management of software dependencies, and increase reproducibility of results. 
+The recommended way to install `Neuroscout-CLI` is using containers (i.e. Docker or Singularity) to facilitate dependency managment.
 
-You can also install _neuroscout-cli_ directly on your system using a manually prepared environment, although this typically requires more effort. 
-
-A third method of running analyses is Google Colab, though larger analyses will take longer to run using the limited free resources.
+For demonstration, it is possible to run `Neuroscout-CLI` in the cloud (for free!) using Google Colab.
 
 ### Containerized Execution
 
 #### Docker
 
-For most systems, we recommend using [Docker](https://www.docker.com/resources/what-container). First, follow the instructions for installing [Docker](https://docs.docker.com/engine/install/) on your system.
+![DockerPulls](https://img.shields.io/docker/pulls/neuroscout/neuroscout-cli.svg)
 
-Next, follow our guide for running [Neuroscout on Docker](docker.md).
+For most systems (i.e. laptops and workstations), we recommend using [Docker](https://www.docker.com/resources/what-container). 
+First, follow the instructions for installing [Docker](https://docs.docker.com/engine/install/) on your system.
+
+Next, follow the [](docker.md) guide in the Neuroscout Docs.
 
 #### Singularity
 
 [Singularity](https://sylabs.io/singularity/) containers are a great solution for High Performance Computing (HPC) environments, where _Docker_ cannot typically be used due to more tightly controlled [user privileges](https://researchcomputing.princeton.edu/support/knowledge-base/singularity).
 
-First, check with your HPC administrator that _Singularity_ is available for use. If so, follow our guide for running [Neuroscout on Singularity](singularity.md).
+First, check with your HPC administrator that _Singularity_ is available for use. If so, follow our guide on [](singularity.md) in the offical [Neuroscout Docs](https://neuroscout.org/docs).
 
 ### Google Colab
 
-A Google colab notebook is available [here](https://colab.research.google.com/github/neuroscout/neuroscout-cli/blob/master/examples/Neuroscout_Colab_Demo_NoMount.ipynb) where you can run a sample pre-generated analysis with an already provided id or provide your own analysis id. To run your own analysis, copy your id into the field in the cell labelled _1) Set Neuroscout Analysis ID_ and then run all of the cells. The provided id will run 10 subjects and 1 run from the Budapest dataset, and may take around 15 minutes. Larger analyses will take longer due to the limited free resources.
+To try Neuroscout without using any local resources, follow our interactive guide to [](Neuroscout_CLI_Colab_Demo.ipynb).
 
-### Manually prepared environment
+Google Colab allows you to execute Jupyer Notebooks for free, using two CPUs for several hours. This should be sufficient for individual Neuroscout analyses. A small demonstration can be run live in ~15 mins. 
+
+### Manually prepared environment using pip
+
+[![PyPI version](https://badge.fury.io/py/neuroscout_cli.svg)](https://badge.fury.io/py/neuroscout_cli)
 
 ```{admonition} Danger
-Manually installing _neuroscout-cli_ can be difficult due to complex dependencies. Proceed only if you really need to do this.
+Manually installing _neuroscout-cli_ can be difficult due to complex dependencies in the SciPy stack, or fMRI-specific tooling. 
+Proceed only if you know what you're doing.
 ```
-Use pip to install _neuroscout-cli_ directly from the GitHub repo:
+Use pip to install _neuroscout-cli_ from PyPI:
 
-    pip install git+https://www.github.com/neuroscout/neuroscout-cli
+    pip install neuroscout-cli
