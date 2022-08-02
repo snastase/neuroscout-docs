@@ -1,4 +1,4 @@
-# Usage & API Reference
+# Usage & Reference
 
 [![Documentation Status](https://readthedocs.org/projects/pyns/badge/?version=latest&style=flat)](https://pyns.readthedocs.io/en/latest/?badge=latest) [![PyPI version](https://badge.fury.io/py/pyNS.svg)](https://badge.fury.io/py/pyNS)
 
