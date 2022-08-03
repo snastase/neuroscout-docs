@@ -8,12 +8,11 @@ _neuroscout-cli_ makes it easy to run your analysis with no configuration by fet
 
 ## Getting Started 🚀
 
-If this is your first time running an analysis, follow our interactive guide to [](Neuroscout_CLI_Colab_Demo.ipynb).
-
-Using Google Colab, you can run a demonstration of *Neuroscout-CLI* in the cloud without using any local resources!
+If this is your first time running an analysis, follow our interactive guide to [](Neuroscout_CLI_Colab_Demo.ipynb) to run a demo of *Neuroscout-CLI* in the cloud without using any local resources!
 
 ```{admonition} Note
-Google Colab allows you to execute Jupyer Notebooks for free, using two CPUs for ~6 hours. This should be sufficient for individual Neuroscout analyses. A small demonstration can be run live in ~15 mins, and a normal analysis should execute in a few hours.```
+Google Colab allows you to execute Jupyer Notebooks for free, using two CPUs for ~6 hours. This should be sufficient for individual Neuroscout analyses. A small demonstration can be run live in ~15 mins, and a normal analysis should execute in a few hours.
+```
 
 ## Installation
 
