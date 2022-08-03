@@ -505,8 +505,8 @@ title="Print to PDF"
 <p class="admonition-title">Note</p>
 <p>You must have Docker installed on your system.</p>
 </div>
-<p>Assuming you’ve already created an analysis on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, you can run it in one line using the analysis_id (e.g.: <code class="docutils literal notranslate"><span class="pre">a54oo</span></code>):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -it -v /local/dir:/outdir neuroscout/neuroscout-cli run 5xH93 /outdir
+<p>Assuming you’ve already created an analysis on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, you can run it in one line using the analysis_id (e.g.: <code class="docutils literal notranslate"><span class="pre">Mv3ev</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -it -v /local/dir:/outdir neuroscout/neuroscout-cli run Mv3ev /outdir
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">/local/dir</span></code> is the local directory you want to save the results.</p>
@@ -518,7 +518,7 @@ The results will be automatically uploaded to NeuroVault, and the analysis page 
 </section>
 <section id="docker-images">
 <h2>Docker Images<a class="headerlink" href="#docker-images" title="Permalink to this headline">#</a></h2>
-<p>For every release of <em>neuroscout-cli</em>, we publish a corresponding Docker image .</p>
+<p>For every release of <em>neuroscout-cli</em>, we publish a corresponding Docker image.</p>
 <p>You can manually download a specific <em>neuroscout-cli</em> release as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker pull neuroscout/neuroscout-cli:&lt;version&gt;
 </pre></div>
