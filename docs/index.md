@@ -18,7 +18,7 @@ Analyses can be downloaded and executed it in one line of code using Neuroscout-
 
 ![fig2a](https://user-images.githubusercontent.com/2774448/163874691-c44ebc96-dd3f-4642-bf5a-0d1abd4ddbad.png)
 
-Neuroscout leverages state-of-the-art machine learning models to automatically annotate naturalistic stimuli, and uses [BIDS Stats Models](https://fitlins.readthedocs.io/en/latest/model.html) and [FitLins](https://github.com/poldracklab/fitlins) to specify and consume statistical models.
+Neuroscout leverages state-of-the-art machine learning models to automatically annotate naturalistic stimuli, and uses [BIDS Stats Models](https://bids-standard.github.io/stats-models/) and [FitLins](https://github.com/poldracklab/fitlins) to specify and consume statistical models.
 [Analysis execution](cli/intro.md) is achieved with _minimal configuration_ using self-contained bundles and run-time data retrieval. Containerized _model-fitting pipelines_  minimize software dependencies and ensure _high portability_ across execution environments.
 
 ---
