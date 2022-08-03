@@ -11,7 +11,7 @@ For the end user, __pyNS__ enables flexibly querying and interaction with the Ne
 
 * Downloading data from Neuroscout, including full predictor time courses
 * Batch-creation of analyses-- particular useful for meta-analytic workflows which test the same analysis across datasets
-* Full flexiblity in specification of BIDS StatsModels [https://bids-standard.github.io/stats-models/]. This enables statistical models which may not be supported by the web app, but are valid and executabl models.
+* Full flexiblity in specification of [BIDS StatsModels](https://bids-standard.github.io/stats-models/). This enables statistical models which may not be supported by the web app, but are valid and executable models.
 
 In addition, for developers __pyNS__ may enable the development of novel experimental applications that use Neuroscout API's data. For example, there is ongoing work to develop an encoding analysis workflow in Neuroscout using __pyNS__. 
 
