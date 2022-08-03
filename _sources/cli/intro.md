@@ -6,11 +6,18 @@ _neuroscout-cli_ makes it easy to run your analysis with no configuration by fet
 
 ![fig2b](../static/images/Figure2b.png)
 
+## Getting Started 🚀
+
+If this is your first time running an analysis, follow our interactive guide to [](Neuroscout_CLI_Colab_Demo.ipynb).
+
+Using Google Colab, you can run a demonstration of *Neuroscout-CLI* in the cloud without using any local resources!
+
+```{admonition} Note
+Google Colab allows you to execute Jupyer Notebooks for free, using two CPUs for ~6 hours. This should be sufficient for individual Neuroscout analyses. A small demonstration can be run live in ~15 mins, and a normal analysis should execute in a few hours.```
+
 ## Installation
 
 The recommended way to install `Neuroscout-CLI` is using containers (i.e. Docker or Singularity) to facilitate dependency managment.
-
-For demonstration, it is possible to run `Neuroscout-CLI` in the cloud (for free!) using Google Colab.
 
 ### Containerized Execution
 
@@ -28,12 +35,6 @@ Next, follow the [](docker.md) guide in the Neuroscout Docs.
 [Singularity](https://sylabs.io/singularity/) containers are a great solution for High Performance Computing (HPC) environments, where _Docker_ cannot typically be used due to more tightly controlled [user privileges](https://researchcomputing.princeton.edu/support/knowledge-base/singularity).
 
 First, check with your HPC administrator that _Singularity_ is available for use. If so, follow our guide on [](singularity.md) in the offical [Neuroscout Docs](https://neuroscout.org/docs).
-
-### Google Colab
-
-To try Neuroscout without using any local resources, follow our interactive guide to [](Neuroscout_CLI_Colab_Demo.ipynb).
-
-Google Colab allows you to execute Jupyer Notebooks for free, using two CPUs for several hours. This should be sufficient for individual Neuroscout analyses. A small demonstration can be run live in ~15 mins. 
 
 ### Manually prepared environment using pip
 
