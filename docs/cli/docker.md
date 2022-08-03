@@ -5,9 +5,9 @@
 ```{Note}
 You must have Docker installed on your system.
 ```
-Assuming you've already created an analysis on neuroscout.org, you can run it in one line using the analysis_id (e.g.: `a54oo`):
+Assuming you've already created an analysis on neuroscout.org, you can run it in one line using the analysis_id (e.g.: `Mv3ev`):
 
-    docker run -it -v /local/dir:/outdir neuroscout/neuroscout-cli run 5xH93 /outdir
+    docker run -it -v /local/dir:/outdir neuroscout/neuroscout-cli run Mv3ev /outdir
 
 where `/local/dir` is the local directory you want to save the results. 
 
@@ -22,7 +22,7 @@ See the following sections for how to customize this command to cache the downlo
 
 ## Docker Images
 
-For every release of _neuroscout-cli_, we publish a corresponding Docker image .
+For every release of _neuroscout-cli_, we publish a corresponding Docker image.
 
 You can manually download a specific _neuroscout-cli_ release as follows:
 
