@@ -7,19 +7,17 @@ titlesonly: true
 ---
 ```
 
-![logo](static/neuroscout_docs_paths.svg)
-
 # What is Neuroscout?
 
 _Neuroscout is an end-to-end platform for analysis of naturalistic public fMRI datasets._
 
-Using Neuroscout, choose among [dozens of naturalistic fMRI datasets](https://neuroscout.org/datasets) and easily build statistical models [in your browser](web/builder/intro.md) to analyze them. We provide [hundreds of pre-extracted predictors](https://neuroscout.org/predictors), but you can also upload custom features.
-Analyses can be downloaded and executed it in one line of code using [Neuroscout-CLI](cli/intro.md), and results are automatically uploaded to [NeuroVault](https://www.neurovault.org/).
+Using our interactive analysis builder, you can choose among [dozens of naturalistic fMRI datasets](https://neuroscout.org/datasets) and easily build statistical models [in your browser](web/builder/intro.md). We provide [hundreds of pre-extracted predictors](https://neuroscout.org/predictors), in addition to supporting custom user-uploaded predictors.
 
 ![fig2a](static/images/Figure2a.png)
 
-Neuroscout leverages state-of-the-art machine learning models to automatically annotate naturalistic stimuli, and uses [BIDS Stats Models](https://bids-standard.github.io/stats-models/) and [FitLins](https://github.com/poldracklab/fitlins) to specify and consume statistical models.
-[Analysis execution](cli/intro.md) is achieved with _minimal configuration_ using self-contained bundles and run-time data retrieval. Containerized _model-fitting pipelines_  minimize software dependencies and ensure _high portability_ across execution environments.
+Analyses can be downloaded and executed it in one line of code using [Neuroscout-CLI](cli/intro.md), and results are automatically uploaded to [NeuroVault](https://www.neurovault.org/) for easy sharing with colleagues.
+
+![fig2b](static/images/Figure2b.png)
 
 ---
 
@@ -44,11 +42,11 @@ Neuroscout leverages state-of-the-art machine learning models to automatically a
 :class-header: bg-light
 **🚀 Get started**
 ^^^
-**[neuroscout.org builder](web/builder/intro.md)**: Create a custom analysis
+**[neuroscout.org](web/builder/intro.md)**: Build a custom analysis
 
 **[Neuroscout-CLI](cli/intro.md)**: Run your analysis
 
-**[Python API](python_api/overview.md)**: Advanced usage
+**[Python API](python_api/overview.md)**: Advanced creation
 
 :::
 
