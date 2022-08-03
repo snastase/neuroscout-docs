@@ -11,12 +11,12 @@ titlesonly: true
 
 # What is Neuroscout?
 
-Neuroscout is an end-to-end platform for analysis of naturalistic public fMRI datasets.
-With Neuroscout, you can choose among [dozens of naturalistic fMRI datasets](https://neuroscout.org/datasets) and easily build statistical models [on your browser](web/builder/intro.md) to analyze them. 
-We provide [hundreds of pre-extracted predictors](https://neuroscout.org/predictors), but you can also upload custom features.
-Analyses can be downloaded and executed it in one line of code using Neuroscout-CLI, and results are automatically uploaded to [NeuroVault](https://www.neurovault.org/).
+_Neuroscout is an end-to-end platform for analysis of naturalistic public fMRI datasets._
 
-![fig2a](https://user-images.githubusercontent.com/2774448/163874691-c44ebc96-dd3f-4642-bf5a-0d1abd4ddbad.png)
+Using Neuroscout, choose among [dozens of naturalistic fMRI datasets](https://neuroscout.org/datasets) and easily build statistical models [in your browser](web/builder/intro.md) to analyze them. We provide [hundreds of pre-extracted predictors](https://neuroscout.org/predictors), but you can also upload custom features.
+Analyses can be downloaded and executed it in one line of code using [Neuroscout-CLI](cli/intro.md), and results are automatically uploaded to [NeuroVault](https://www.neurovault.org/).
+
+![fig2a](static/images/Figure2a.png)
 
 Neuroscout leverages state-of-the-art machine learning models to automatically annotate naturalistic stimuli, and uses [BIDS Stats Models](https://bids-standard.github.io/stats-models/) and [FitLins](https://github.com/poldracklab/fitlins) to specify and consume statistical models.
 [Analysis execution](cli/intro.md) is achieved with _minimal configuration_ using self-contained bundles and run-time data retrieval. Containerized _model-fitting pipelines_  minimize software dependencies and ensure _high portability_ across execution environments.
