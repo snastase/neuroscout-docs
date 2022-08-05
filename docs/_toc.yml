@@ -5,6 +5,7 @@ parts:
   chapters:
   - file: overview/ecosystem
   - file: overview/faq
+  - file: overview/get_involved
 - caption: Neuroscout.org
   chapters:
   - file: web/builder/index
