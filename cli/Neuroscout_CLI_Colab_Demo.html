@@ -537,6 +537,7 @@ title="Print to PDF"
 <h1>Cloud execution on Google Colab<a class="headerlink" href="#cloud-execution-on-google-colab" title="Permalink to this headline">#</a></h1>
 <p>Here, we will demo <code class="docutils literal notranslate"><span class="pre">Neuroscout</span></code> in cloud using the free resources available in <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>. You check it out as rendered here in a static version, run it interactively via the little <code class="docutils literal notranslate"><span class="pre">rocket</span> <span class="pre">icon</span></code> followed by clicking on/selecting <code class="docutils literal notranslate"><span class="pre">Colab</span></code> or directly via <a href="https://colab.research.google.com/github/neuroscout/neuroscout-cli/blob/colab/examples/Neuroscout_CLI_Colab_Demo.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>.</p>
 <p>Specifically, this section will show you how you can run a sample pre-generated analysis with an already provided <code class="docutils literal notranslate"><span class="pre">id</span></code> or provide your own <code class="docutils literal notranslate"><span class="pre">analysis</span> <span class="pre">id</span></code>. To run your own <code class="docutils literal notranslate"><span class="pre">analysis</span></code>, copy your <code class="docutils literal notranslate"><span class="pre">id</span></code> into the field in the cell labelled (<code class="docutils literal notranslate"><span class="pre">_1</span></code>), set <code class="docutils literal notranslate"><span class="pre">Neuroscout</span></code> <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> <code class="docutils literal notranslate"><span class="pre">ID_</span></code> and then <code class="docutils literal notranslate"><span class="pre">run</span></code> all of the <code class="docutils literal notranslate"><span class="pre">cells</span></code>. The provided here <code class="docutils literal notranslate"><span class="pre">id</span></code> will run <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">subjects</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">run</span></code> from the <a class="reference external" href="https://neuroscout.org/dataset/27">Budapest dataset</a>, and may take around <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">minutes</span></code>. Larger <code class="docutils literal notranslate"><span class="pre">analyses</span></code> will take longer due to the limited free resources. To minimize downloads, we’ve uploaded the <code class="docutils literal notranslate"><span class="pre">Budapest</span></code> dataset to Google Drive, but feel free to run analyses from other datasets by downloading data using the <code class="docutils literal notranslate"><span class="pre">get</span></code> command.</p>
+<p>In order to make this work here, we need to install a few things first. This includes <a class="reference external" href="https://neuro.debian.net/">Neurodebian</a> (to easily get <code class="docutils literal notranslate"><span class="pre">DataLad</span></code>), <a class="reference external" href="https://www.datalad.org/">DataLad</a> (to get the data, here the <code class="docutils literal notranslate"><span class="pre">Budapest</span></code> dataset), and of course <a class="reference external" href="https://neuroscout.org/">Neuroscout</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#@title 1) Run once to install Neuroscout-CLI &amp; DataLad (~1 minute)
@@ -572,6 +573,7 @@ display(&quot;Done.&quot;)
 </div>
 </div>
 </div>
+<p>Now we can set the <code class="docutils literal notranslate"><span class="pre">analysis</span> <span class="pre">ID</span></code> as outlined above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title 2) Set your Neuroscout Analysis ID { run: &quot;auto&quot; }</span>
@@ -1860,7 +1862,7 @@ Uploading group images
   anat_img = load_mni152_template()
 </pre></div>
 </div>
-<img alt="../_images/Neuroscout_CLI_Colab_Demo_15_1.png" src="../_images/Neuroscout_CLI_Colab_Demo_15_1.png" />
+<img alt="../_images/Neuroscout_CLI_Colab_Demo_16_1.png" src="../_images/Neuroscout_CLI_Colab_Demo_16_1.png" />
 </div>
 </div>
 <p>In our example analysis, <code class="docutils literal notranslate"><span class="pre">iarv7</span></code>, even with only 10 subjects (only first run), we see peak activity in the STS for speech, as expected.</p>

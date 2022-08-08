@@ -32,7 +32,7 @@ Neuroscout-CLI makes it easy to run your analysis with no configuration by fetch
 
 ## pyNS
 
-pyNS is the Python library for Neuroscout, supporting programmatic access of the Neuroscout API in Python. Serving as the interface for the Neuroscout API, pyNS is used by Neuroscout-CLI to communicate with the Neuroscout server, and push back results to Neurovault. 
+[pyNS](https://pyns.readthedocs.io/en/latest/) is the Python library for Neuroscout, supporting programmatic access of the Neuroscout API in Python. Serving as the interface for the Neuroscout API, pyNS is used by Neuroscout-CLI to communicate with the Neuroscout server, and push back results to Neurovault. 
 
 Advanced end-users can use pyNS directly instead of the neuroscout.org analysis builder in order to programmaticaly build analyses. This is useful for users that wish to create a large number of analyses, or want to create models which are not supported by the streamlined web-bsed analysis builder. 
 
