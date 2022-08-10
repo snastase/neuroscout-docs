@@ -550,6 +550,11 @@ Most operations will operate on each column independently, but specifying multip
 <li><p><code class="docutils literal notranslate"><span class="pre">Rescale</span></code> - If <code class="docutils literal notranslate"><span class="pre">True</span></code>, divides each <code class="docutils literal notranslate"><span class="pre">column</span></code> by its <code class="docutils literal notranslate"><span class="pre">standard</span> <span class="pre">deviation</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ReplaceNA</span></code> - Whether/when to replace missing values with <code class="docutils literal notranslate"><span class="pre">0</span></code>. If “Don’t replace”: no replacement is performed. If ‘before’: missing values are replaced with <code class="docutils literal notranslate"><span class="pre">0</span></code>’s before <code class="docutils literal notranslate"><span class="pre">scaling</span></code>. If ‘after’: missing values are replaced with <code class="docutils literal notranslate"><span class="pre">0</span></code> after <code class="docutils literal notranslate"><span class="pre">scaling</span></code>.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If using only DummyContrasts, it is not necessary to scale variables, as the statistical maps we interpret are scale invariant. Scaling be necessary if computing contrasts between variables (which we don’t typically reccomend with naturalistic features).</p>
+<p>However, it may be useful to use the scale transformation if there are missing values (NAs) in the variable. Replacing missing values with 0s after scaling effectively sets the values of NAs to the mean of that variable (for that run).</p>
+</div>
 </section>
 <section id="orthogonalize">
 <h3>Orthogonalize<a class="headerlink" href="#orthogonalize" title="Permalink to this headline">#</a></h3>
