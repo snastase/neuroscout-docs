@@ -31,6 +31,12 @@ Most `transformations` additionally have specific options which you can specify.
   - `Rescale` - If `True`, divides each `column` by its `standard deviation`.
   - `ReplaceNA` - Whether/when to replace missing values with `0`. If "Don't replace": no replacement is performed. If 'before': missing values are replaced with `0`'s before `scaling`. If 'after': missing values are replaced with `0` after `scaling`.
 
+```{Note}
+If using only DummyContrasts, it is not necessary to scale variables, as the statistical maps we interpret are scale invariant. Scaling be necessary if computing contrasts between variables (which we don't typically reccomend with naturalistic features). 
+
+However, it may be useful to use the scale transformation if there are missing values (NAs) in the variable. Replacing missing values with 0s after scaling effectively sets the values of NAs to the mean of that variable (for that run).
+```
+
 ### Orthogonalize
 
 ![Orthogonalize](img/transformation_orth.png)
