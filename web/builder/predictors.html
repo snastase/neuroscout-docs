@@ -421,15 +421,24 @@ This is an example of a <code class="docutils literal notranslate"><span class="
 <p>You can use the search bar to filter <code class="docutils literal notranslate"><span class="pre">predictors</span></code> across all three columns. For example, here we searched for “image recognition”, resulting in 67 matches.</p>
 <p>As you select <code class="docutils literal notranslate"><span class="pre">predictors</span></code>, they are displayed in the top right, helping you keep track of <code class="docutils literal notranslate"><span class="pre">predictors</span></code> not in the current search.
 You can click on the <code class="docutils literal notranslate"><span class="pre">x</span></code> on the right of each label to unselect that <code class="docutils literal notranslate"><span class="pre">predictor</span></code>.</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">predictor</span></code> interface is your sole interface for adding predictors to the <code class="docutils literal notranslate"><span class="pre">design</span> <span class="pre">matrix</span></code>, including “confounds”.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Tip
+The <code class="docutils literal notranslate"><span class="pre">predictor</span></code> interface is your sole interface for adding predictors to the <code class="docutils literal notranslate"><span class="pre">design</span> <span class="pre">matrix</span></code>, including “confounds”.</p>
 <p>Since all datasets are pre-processed with <code class="docutils literal notranslate"><span class="pre">fmriprep</span></code>, use that as a search term to display available <code class="docutils literal notranslate"><span class="pre">confounds</span></code>. In this example, we have already selected six <code class="docutils literal notranslate"><span class="pre">fmriprep</span></code> <code class="docutils literal notranslate"><span class="pre">confounds</span></code> to include in the model (<code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">rigid-body</span> <span class="pre">transforms</span></code>, such as <code class="docutils literal notranslate"><span class="pre">rot_x</span></code>).</p>
 <p>See the <a class="reference external" href="https://fmriprep.readthedocs.io/en/stable/outputs.html#confounds">fmriprep documentation</a> for in-depth information about these <code class="docutils literal notranslate"><span class="pre">confound</span></code> variables.</p>
 </div>
-<div class="admonition-danger admonition">
-<p class="admonition-title">Danger</p>
-<p>Very large models with dozens of predictors may be slow to compile and fit. We recommend starting with smaller models and building up to larger models as you’ve gained experience.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Danger
+Very large models with dozens of predictors may be slow to compile and fit. We recommend starting with smaller models and building up to larger models as you’ve gained experience.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note
+In order to simplify the interface, Neuroscout only displays the newest version of each predictor (determined by unique name).
+If extractors received a major update, we may re-extract a predictor. In this instance, an older analysis would refer to an older version of the Predictor, while a newly created analysis would refer to the latest version.</p>
+<p>If you require precise control over the predictor version, you may need to directly access the Neuroscout API using <span class="xref myst">pyNS</span>.</p>
 </div>
 </section>
 
