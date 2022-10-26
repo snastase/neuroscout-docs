@@ -26,6 +26,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -55,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Portable Docker Execution" href="docker.html" />
-    <link rel="prev" title="Cloning analyses" href="../web/browse/clone.html" />
+    <link rel="prev" title="Cloning analyses" href="../web/browse/clone.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -69,6 +71,38 @@ const thebe_selector_output = ".output, .cell_output"
                     gtag('js', new Date());
                     gtag('config', 'G-CSGLPQDPMH');
                 </script>
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../updates/atom.xml"
+  title="Neuroscout Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
 
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
@@ -132,6 +166,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../overview/get_involved.html">
    Get involved
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../updates.html">
+   Updates Blog
   </a>
  </li>
 </ul>
@@ -505,8 +544,7 @@ title="Print to PDF"
             <main id="main-content" role="main">
                 
               <div>
-                
-  <section class="tex2jax_ignore mathjax_ignore" id="overview">
+                 <section class="tex2jax_ignore mathjax_ignore" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
 <p>The Neuroscout Command Line Interface (<em>neuroscout-cli</em>) allows you to execute analyses created on <a class="reference external" href="https://neuroscout.org">neuroscout.org</a>.</p>
 <p><em>neuroscout-cli</em> makes it easy to run your analysis with no configuration by fetching a self-contained analysis bundle, and downloading the required preprocessed fMRI data using <a class="reference external" href="https://www.datalad.org/">DataLad</a>. <em>neuroscout-cli</em> internally uses <a class="reference external" href="https://github.com/poldracklab/fitlins">FitLins</a>, a python pipeline for fMRI analysis in BIDS, to fit a statistical model to the fMRI data, and produce comprehensive reports. <em>neuroscout-cli</em> automatically uploads the resulting images to <a class="reference external" href="https://www.neurovault.org/">Neurovault</a>, and links them to the analysis listing, making it easy to view and share your results.</p>
@@ -572,6 +610,9 @@ Proceed only if you know what you’re doing.</p>
     }
     </script>
     <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
 
               </div>
               
