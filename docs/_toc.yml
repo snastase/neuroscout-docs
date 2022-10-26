@@ -6,6 +6,7 @@ parts:
   - file: overview/ecosystem
   - file: overview/faq
   - file: overview/get_involved
+  - file: updates.md
 - caption: Neuroscout.org
   chapters:
   - file: web/builder/index

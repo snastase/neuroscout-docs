@@ -3,33 +3,53 @@
 # If you wish to continue using _config.yml, make edits to that file and
 # re-generate this one.
 ###############################################################################
-author = 'The Jupyter Book community'
-comments_config = {'hypothesis': False, 'utterances': False}
+author = 'The Neuroscout team'
+comments_config = {'hypothesis': True, 'utterances': False}
 copyright = '2022'
 exclude_patterns = ['**.ipynb_checkpoints', '.DS_Store', 'Thumbs.db', '_build']
 execution_allow_errors = False
 execution_excludepatterns = []
 execution_in_temp = False
 execution_timeout = 30
-extensions = ['sphinx_togglebutton', 'sphinx_copybutton', 'myst_nb', 'jupyter_book', 'sphinx_thebe', 'sphinx_comments', 'sphinx_external_toc', 'sphinx.ext.intersphinx', 'sphinx_design', 'sphinx_book_theme', 'sphinx_jupyterbook_latex']
+extensions = ['ablog', 'sphinx_togglebutton', 'sphinx_copybutton', 'myst_nb', 'jupyter_book', 'sphinx_thebe', 'sphinx_comments', 'sphinx_external_toc', 'sphinx.ext.intersphinx', 'sphinx_design', 'sphinx_book_theme', 'sphinx_jupyterbook_latex']
 external_toc_exclude_missing = False
 external_toc_path = '_toc.yml'
-html_baseurl = ''
+html_baseurl = 'https://neuroscout.github.io/neuroscout-docs/'
+html_css_files = ['custom.css']
 html_favicon = ''
-html_logo = ''
+html_logo = 'static/neuroscout_docs_paths.svg'
 html_sourcelink_suffix = ''
+# html_static_path = ['_static']
 html_theme = 'sphinx_book_theme'
-html_theme_options = {'search_bar_text': 'Search this book...', 'launch_buttons': {'notebook_interface': 'classic', 'binderhub_url': 'https://mybinder.org', 'jupyterhub_url': '', 'thebe': False, 'colab_url': ''}, 'path_to_docs': '', 'repository_url': 'https://github.com/executablebooks/jupyter-book', 'repository_branch': 'master', 'google_analytics_id': '', 'extra_navbar': 'Powered by <a href="https://jupyterbook.org">Jupyter Book</a>', 'extra_footer': '', 'home_page_in_toc': True, 'announcement': '', 'use_repository_button': False, 'use_edit_page_button': False, 'use_issues_button': False}
-html_title = 'My Jupyter Book'
+html_theme_options = {'search_bar_text': 'Search this book...', 'launch_buttons': {'notebook_interface': 'classic', 'binderhub_url': 'https://mybinder.org', 'jupyterhub_url': '', 'thebe': True, 'colab_url': 'https://colab.research.google.com'}, 'path_to_docs': 'docs/', 'repository_url': 'https://github.com/neuroscout/neuroscout-docs', 'repository_branch': 'main', 'google_analytics_id': 'G-CSGLPQDPMH', 'extra_navbar': 'Powered by <a href="https://jupyterbook.org">Jupyter Book</a>', 'extra_footer': '', 'home_page_in_toc': False, 'announcement': '', 'use_repository_button': False, 'use_edit_page_button': True, 'use_issues_button': False}
+html_title = ''
+intersphinx_mapping = {'ebp': ['https://executablebooks.org/en/latest/', None], 'myst-parser': ['https://myst-parser.readthedocs.io/en/latest/', None], 'myst-nb': ['https://myst-nb.readthedocs.io/en/latest/', None], 'sphinx': ['https://www.sphinx-doc.org/en/master', None], 'nbformat': ['https://nbformat.readthedocs.io/en/latest', None], 'sphinx-panels': ['https://sphinx-panels.readthedocs.io/en/sphinx-book-theme/', None]}
 jupyter_cache = ''
-jupyter_execute_notebooks = 'auto'
+jupyter_execute_notebooks = 'off'
 language = None
+latex_elements = {'preamble': '\\newcommand\\N{\\mathbb{N}}\n\\newcommand\\floor[1]{\\lfloor#1\\rfloor}\n\\newcommand{\\bmat}{\\left[\\begin{array}}\n\\newcommand{\\emat}{\\end{array}\\right]}\n'}
 latex_engine = 'pdflatex'
+mathjax3_config = {'TeX': {'Macros': {'N': '\\mathbb{N}', 'floor': ['\\lfloor#1\\rfloor', 1], 'bmat': ['\\left[\\begin{array}'], 'emat': ['\\end{array}\\right]']}}}
 myst_enable_extensions = ['colon_fence', 'dollarmath', 'linkify', 'substitution', 'tasklist']
 myst_url_schemes = ['mailto', 'http', 'https']
+nb_custom_formats = {'.Rmd': ['jupytext.reads', {'fmt': 'Rmd'}]}
 nb_output_stderr = 'show'
 numfig = True
 pygments_style = 'sphinx'
 suppress_warnings = ['myst.domains']
 use_jupyterbook_latex = True
 use_multitoc_numbering = True
+
+
+# A blog config
+# ablog configuration
+import ablog
+fontawesome_included = True
+blog_path = "updates"
+blog_title = "Neuroscout Blog"
+blog_baseurl = "https://neuroscout.github.io/neuroscout-docs/"
+blog_feed_archives = True
+
+
+def setup(app):
+    app.add_css_file("custom.css")
