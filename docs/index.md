@@ -31,9 +31,9 @@ Analyses can be downloaded and executed it in one line of code using [Neuroscout
 ^^^
 **[Ecosystem](overview/ecosystem.md)**: Get familiar with Neuroscout
 
-**[Paper](https://doi.org/10.1101/2022.04.05.487222)**: Read for an in-depth dive
+**[Paper](https://elifesciences.org/articles/79277)**: Read our eLife paper
 
-**[Browse](https://neuroscout.org/public)**: Browse public analyses
+**[Blog](updates.md)**: Read our update blog
 
 :::
 
