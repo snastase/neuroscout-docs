@@ -46,9 +46,6 @@ For example, given a dataset where all subjects saw the same movie, split across
 
 After uploading, a new collection of predictors will be created. By default, predictors in this collection will be private, and only visible to you in the Analysis Builder. If you wish to share these predictors with other Neuroscout users, please contact us, and we can make your predictors public.
 
-### Predictor descriptions
-Finally, you will be asked to give a human readable description for each Predictor that you've included in your collection. Make this as descriptive as possible, so that other users can understand what the predictor represents.
-
 ## Contributing Extractors to Pliers
 
 Alternatively, if you have a new extractor that you would like to contribute to pliers, that you believe would be useful to the community, please see the [pliers documentation](https://pliers.readthedocs.io/en/latest/). We are happy to help you get started, and can provide guidance on how to best implement your extractor.
