@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://neuroscout.github.io/neuroscout-docs/cli/Neuroscout_CLI_Colab_Demo.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Usage Reference" href="usage.html" />
+    <link rel="next" title="Overview" href="../python_api/overview.html" />
     <link rel="prev" title="Singularity for HPCs" href="singularity.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -254,6 +254,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../web/upload.html">
+   Uploading Predictors
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -279,11 +284,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Cloud execution on Google Colab
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="usage.html">
-   Usage Reference
   </a>
  </li>
 </ul>
@@ -614,14 +614,14 @@ display(&quot;Done.&quot;)
 <p>Now we can set the <code class="docutils literal notranslate"><span class="pre">analysis</span> <span class="pre">ID</span></code> as outlined above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title 2) Set your Neuroscout Analysis ID { run: &quot;auto&quot; }</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#@title 2) Set your Neuroscout Analysis ID { run: &quot;auto&quot; }
 
-<span class="n">analysis_id</span> <span class="o">=</span> <span class="s1">&#39;iarv7&#39;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+analysis_id = &#39;iarv7&#39; #@param {type:&quot;string&quot;}
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;ANALYSIS_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analysis_id</span>
+import os
+os.environ[&#39;ANALYSIS_ID&#39;] = analysis_id
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analysis ID set to: </span><span class="si">{</span><span class="n">analysis_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;Analysis ID set to: {analysis_id}&quot;)
 </pre></div>
 </div>
 </div>
@@ -643,8 +643,8 @@ You can run this model, and any model using this dataset without downloading any
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from google.colab import drive
+drive.mount(&#39;/content/drive&#39;)
 </pre></div>
 </div>
 </div>
@@ -664,7 +664,7 @@ You can run this model, and any model using this dataset without downloading any
 <p>Since we are providing a cached dataset, we will instruct <code class="docutils literal notranslate"><span class="pre">neuroscout</span></code> to skip data fetching (<code class="docutils literal notranslate"><span class="pre">--no-get</span></code>), and point neuroscout to the <code class="docutils literal notranslate"><span class="pre">--download-dir</span></code> where our cached data from Drive is.</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>neuroscout run --no-get --download-dir<span class="o">=</span>/content/drive/MyDrive/neuroscout-datasets --n-cpus<span class="o">=</span><span class="m">2</span> <span class="nv">$ANALYSIS_ID</span> /out
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!neuroscout run --no-get --download-dir=/content/drive/MyDrive/neuroscout-datasets --n-cpus=2 $ANALYSIS_ID /out
 </pre></div>
 </div>
 </div>
@@ -1837,7 +1837,7 @@ Uploading group images
 <p>If you want to run an analysis without Google Drive (i.e. any analysis not using the <code class="docutils literal notranslate"><span class="pre">Budapest</span></code> dataset), simply remove the <code class="docutils literal notranslate"><span class="pre">--no-get</span></code> and <code class="docutils literal notranslate"><span class="pre">--dataset-dir</span></code> arguments, and the fMRI data will be downloaded to the <code class="docutils literal notranslate"><span class="pre">/out</span></code> directory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !neuroscout run --n-cpus=2 $ANALYSIS_ID /out</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># !neuroscout run --n-cpus=2 $ANALYSIS_ID /out
 </pre></div>
 </div>
 </div>
@@ -1850,7 +1850,7 @@ Uploading group images
 <p>You can also view the local analysis outputs, stored in <code class="docutils literal notranslate"><span class="pre">/neuroscout-{ANALYSIS_ID}</span></code> in this notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls /out/neuroscout-<span class="si">${</span><span class="nv">ANALYSIS_ID</span><span class="si">}</span>/
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!ls /out/neuroscout-${ANALYSIS_ID}/
 </pre></div>
 </div>
 </div>
@@ -1867,7 +1867,7 @@ Uploading group images
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls /out/neuroscout-<span class="si">${</span><span class="nv">ANALYSIS_ID</span><span class="si">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!ls /out/neuroscout-${ANALYSIS_ID}
 </pre></div>
 </div>
 </div>
@@ -1882,14 +1882,14 @@ Uploading group images
 <p>Here, we’re going to plot all group level <code class="docutils literal notranslate"><span class="pre">t</span></code> maps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_stat_map</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from nilearn.plotting import plot_stat_map
+from pathlib import Path
 
-<span class="n">outputs</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;/out/neuroscout-</span><span class="si">{</span><span class="n">analysis_id</span><span class="si">}</span><span class="s2">/fitlins/&quot;</span><span class="p">)</span>
-<span class="n">statmaps</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;level-dataset_*contrast*stat-t*.nii.gz&#39;</span><span class="p">)</span>
+outputs = Path(f&quot;/out/neuroscout-{analysis_id}/fitlins/&quot;)
+statmaps = outputs.glob(&#39;level-dataset_*contrast*stat-t*.nii.gz&#39;)
 
-<span class="k">for</span> <span class="nb">map</span> <span class="ow">in</span> <span class="n">statmaps</span><span class="p">:</span>
-  <span class="n">plot_stat_map</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">map</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="nb">map</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">2.58</span><span class="p">)</span>
+for map in statmaps:
+  plot_stat_map(str(map), title=map.name, threshold=2.58)
 </pre></div>
 </div>
 </div>
@@ -1944,10 +1944,10 @@ Uploading group images
             <p class="prev-next-title">Singularity for HPCs</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="usage.html" title="next page">
+    <a class='right-next' id="next-link" href="../python_api/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Usage Reference</p>
+        <p class="prev-next-title">Overview</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

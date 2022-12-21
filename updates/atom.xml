@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://neuroscout.github.io/neuroscout-docs/</id>
   <title>Neuroscout Blog</title>
-  <updated>2022-10-28T20:25:21.092372+00:00</updated>
+  <updated>2022-12-21T21:25:48.073202+00:00</updated>
   <link href="https://neuroscout.github.io/neuroscout-docs/"/>
   <link href="https://neuroscout.github.io/neuroscout-docs/updates/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.29">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.33">ABlog</generator>
   <entry>
     <id>https://neuroscout.github.io/neuroscout-docs/updates/2022-08-25-preprint.html</id>
     <title>Big news from the Neuroscout team!</title>
