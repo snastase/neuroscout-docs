@@ -98,5 +98,5 @@ In addition, using pyNS, users are free to access the Neuroscout API and develop
 Yes! Using the "My Predictors" function, you can create custom collections of predictors to add to your analyses.
 Simply navigate to [My Predictors](https://neuroscout.org/mycollections) and click on "Add New Predictors".
 
-For more information, see the guide on [Upload Predictors](web/upload.md)
+For more information, see the guide on [Upload Predictors](../web/upload.md)
 ```

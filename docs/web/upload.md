@@ -54,5 +54,5 @@ Finally, you will be asked to give a human readable description for each Predict
 Alternatively, if you have a new extractor that you would like to contribute to pliers, that you believe would be useful to the community, please see the [pliers documentation](https://pliers.readthedocs.io/en/latest/). We are happy to help you get started, and can provide guidance on how to best implement your extractor.
 If the extract is likely to have general appeal, it is possible we could centrally extract it across all datasets, and make it available to all users. This also applies to extractors that may already be implemented in Pliers, but not yet extracted. Please get in touch!
 
-Please see [Get Involved](overview/get_involved.md) for more information on how to contribute to Neuroscout.
+Please see [Get Involved](../overview/get_involved.md) for more information on how to contribute to Neuroscout.
 
