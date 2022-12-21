@@ -1,5 +1,9 @@
 # Select Predictors
 
+```{admonition} Note
+You can browse all predictors available on Neuroscout [here](https://neuroscout.org/predictors).
+```
+
 In this tab, you can browse and search from hundreds of automatically extracted `predictors` to include in your model.
 
 ![Select predictors](img/predictors.png)

@@ -14,6 +14,13 @@ If this is your first time running an analysis, follow our interactive guide to 
 Google Colab allows you to execute Jupyer Notebooks for free, using two CPUs for ~6 hours. This should be sufficient for individual Neuroscout analyses. A small demonstration can be run live in ~15 mins, and a normal analysis should execute in a few hours.
 ```
 
+## Documentation and Reference
+
+[![Documentation Status](https://readthedocs.org/projects/neuroscout-cli/badge/?version=latest&style=flat)](https://neuroscout-cli.readthedocs.io/en/latest/?badge=latest) [![PyPI version](https://badge.fury.io/py/neuroscout_cli.svg)](https://badge.fury.io/py/neuroscout_cli)
+
+For comprehensive reference of _Neuroscout-CLI_ , please visit the official [Neuroscout-CLI Documentation](https://neuroscout-cli.readthedocs.io/en/latest/) on ReadTheDocs. These docs are updated as new Neuroscout-CLI versions are released.
+
+
 ## Installation
 
 The recommended way to install `Neuroscout-CLI` is using containers (i.e. Docker or Singularity) to facilitate dependency managment.

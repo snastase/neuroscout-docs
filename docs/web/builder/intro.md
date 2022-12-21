@@ -33,6 +33,10 @@ Optionally, also give your analysis a `description`. If you make many analyses, 
 
 ### Choosing a dataset
 
+```{admonition} Note
+You can browse all datasets available on Neuroscout [here](https://neuroscout.org/datasets).
+```
+
 ![Choose a dataset](img/datasets.png)
 
 `Neuroscout` currently indexes a curated set of [16 public naturalistic fMRI datasets](https://neuroscout.org/datasets).
