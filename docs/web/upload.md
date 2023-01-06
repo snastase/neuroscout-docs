@@ -44,7 +44,11 @@ For example, given a dataset where all subjects saw the same movie, split across
 
 ![My Collections](img/upload_run_association.png)
 
-After uploading, a new collection of predictors will be created. By default, predictors in this collection will be private, and only visible to you in the Analysis Builder. If you wish to share these predictors with other Neuroscout users, please contact us, and we can make your predictors public.
+After uploading, a new collection of predictors will be created. 
+
+```{admonition} Note
+By default, uploaded predictors will be private, and only visible to you in the Analysis Builder. If you wish to share these predictors with other Neuroscout users, please contact us, and we can make your predictors public.
+```
 
 ### Predictor descriptions
 Finally, you will be asked to give a human readable description for each Predictor that you've included in your collection. Make this as descriptive as possible, so that other users can understand what the predictor represents.
