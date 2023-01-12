@@ -34,4 +34,3 @@ parts:
 - caption: "pyNS: Python API"
   chapters:
   - file: python_api/overview
-  - file: python_api/reference.md
