@@ -1,0 +1,1639 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Ridge regression workflow for Neuroscout</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://neuroscout.github.io/neuroscout-docs/python_api/ridge-encoding.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CSGLPQDPMH"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-CSGLPQDPMH');
+                </script>
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../updates/atom.xml"
+  title="Neuroscout Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/neuroscout_docs_paths.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Overview
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview/ecosystem.html">
+   Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview/faq.html">
+   Frequently Asked Questions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview/get_involved.html">
+   Get involved
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../updates.html">
+   Updates Blog
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Neuroscout.org
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../web/builder/index.html">
+   Creating analyses
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/builder/intro.html">
+     Getting Started 🚀
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/builder/predictors.html">
+     Select Predictors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/builder/transformations.html">
+     Add Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/builder/hrf.html">
+     HRF Convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/builder/contrasts.html">
+     Contrasts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/builder/review.html">
+     Review
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/builder/run.html">
+     Run / Status
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/builder/bib.html">
+     Bibliography
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../web/browse/index.html">
+   Browse &amp; manage
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/browse/intro.html">
+     Browsing analyses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../web/browse/clone.html">
+     Cloning analyses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../web/upload.html">
+   Uploading Predictors
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  CLI: Running analyses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cli/intro.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cli/docker.html">
+   Portable Docker Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cli/singularity.html">
+   Singularity for HPCs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cli/Neuroscout_CLI_Colab_Demo.html">
+   Cloud execution on Google Colab
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  pyNS: Python API
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="overview.html">
+   Usage &amp; Reference
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/neuroscout/neuroscout-docs/main?urlpath=tree/docs/python_api/ridge-encoding.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/neuroscout/neuroscout-docs/blob/main/docs/python_api/ridge-encoding.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/neuroscout/neuroscout-docs/edit/main/docs/python_api/ridge-encoding.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/python_api/ridge-encoding.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#citing-neuroscout">
+   Citing Neuroscout
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fetching-neuroscout-data">
+   Fetching Neuroscout Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-data-is-available">
+     What data is available?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fetching-predictors">
+     Fetching predictors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fetch-fmri-data-and-loading-images">
+     Fetch fMRI data and loading images
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#image-preprocessing">
+     Image preprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-ridge-regression-model-using-melspectrogram-features">
+   Fitting Ridge regression model using melspectrogram features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mel-spectrogram-features-only">
+     Mel-spectrogram features only
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ridge-regression-using-mfcc-features">
+     Ridge regression using MFCC features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-impulse-response-model">
+   Finite impulse response model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fir-model-with-mfcc-features">
+     FIR model with MFCC features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#banded-model-with-both-mel-and-mfcc">
+     Banded model with both mel and MFCC
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#where-to-go-from-here">
+   Where to go from here?
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ridge regression workflow for Neuroscout</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#citing-neuroscout">
+   Citing Neuroscout
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fetching-neuroscout-data">
+   Fetching Neuroscout Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-data-is-available">
+     What data is available?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fetching-predictors">
+     Fetching predictors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fetch-fmri-data-and-loading-images">
+     Fetch fMRI data and loading images
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#image-preprocessing">
+     Image preprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-ridge-regression-model-using-melspectrogram-features">
+   Fitting Ridge regression model using melspectrogram features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mel-spectrogram-features-only">
+     Mel-spectrogram features only
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ridge-regression-using-mfcc-features">
+     Ridge regression using MFCC features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-impulse-response-model">
+   Finite impulse response model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fir-model-with-mfcc-features">
+     FIR model with MFCC features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#banded-model-with-both-mel-and-mfcc">
+     Banded model with both mel and MFCC
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#where-to-go-from-here">
+   Where to go from here?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                 <section class="tex2jax_ignore mathjax_ignore" id="ridge-regression-workflow-for-neuroscout">
+<h1>Ridge regression workflow for Neuroscout<a class="headerlink" href="#ridge-regression-workflow-for-neuroscout" title="Permalink to this headline">#</a></h1>
+<p>This notebook implements a cross-valided voxel-wise encoding model for a single subject using Regularized Ridge Regression.</p>
+<p>The goal is to demonstrate how to obtain Neuroscout data to fit models using custom pipelines. For a comprehensive tutorial, check out the excellent <a class="reference external" href="https://gallantlab.github.io/voxelwise_tutorials/index.html">voxelwise modeling tutorials</a> from the Gallant Lab.</p>
+<p><strong>Note</strong>: By implementing a custom pipeline, your analysis will not be centrally registered on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, and a reproducible record will not be made. For analyses supported the Neuroscout-CLI (e.g. group voxel-wise mass univariate GLM models), it is recommended to use the <a class="reference external" href="http://neuroscout.org">neuroscout.org</a> web inteface, or follow the guide for programmatically <a class="reference external" href="https://pyns.readthedocs.io/en/latest/analyses.html">creating analyses
+using pyNS</a>.</p>
+<section id="citing-neuroscout">
+<h2>Citing Neuroscout<a class="headerlink" href="#citing-neuroscout" title="Permalink to this headline">#</a></h2>
+<p>If you publish any results using the Neuroscout data, be sure to cite the Neuroscout paper, and corresponding datasets:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Alejandro de la Vega, Roberta Rocca, Ross W Blair, Christopher J Markiewicz, Jeff Mentch, James D Kent, Peer Herholz, Satrajit S Ghosh, Russell A Poldrack, Tal Yarkoni (2022). *Neuroscout, a unified platform for generalizable and reproducible fMRI research*. eLife 11:e79277. https://doi.org/10.7554/eLife.79277
+
+Visconti di Oleggio Castello, M., Chauhan, V., Jiahui, G., &amp; Gobbini, M. I. An fMRI dataset in response to “The Grand Budapest Hotel”, a socially-rich, naturalistic movie. Sci Data 7, 383 (2020). https://doi.org/10.1038/s41597-020-00735-4
+</pre></div>
+</div>
+</section>
+<section id="fetching-neuroscout-data">
+<h2>Fetching Neuroscout Data<a class="headerlink" href="#fetching-neuroscout-data" title="Permalink to this headline">#</a></h2>
+<p>We can easily retrieve data from <em>Neuroscout</em> using <strong>pyNS</strong>– the Python Neuroscout API client.
+Be sure to refer to the official <a class="reference external" href="https://pyns.readthedocs.io/en/latest/">pyNS documentation</a> for further usage information, with particular focus on the section on <a class="reference external" href="https://pyns.readthedocs.io/en/latest/fetching.html">fetching predictors and images</a>.</p>
+<section id="what-data-is-available">
+<h3>What data is available?<a class="headerlink" href="#what-data-is-available" title="Permalink to this headline">#</a></h3>
+<p>If you’re not sure what is available, you can browse Neuroscout’s <a class="reference external" href="https://neuroscout.org/datasets">datasets</a> and <a class="reference external" href="https://neuroscout.org/predictors">predictors</a> online.</p>
+<p>Here, we were going to focus on the ‘Budapest’ dataset, choosing the first subject (<code class="docutils literal notranslate"><span class="pre">sid000005</span></code>) as an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find first subject for Budapest</span>
+<span class="kn">from</span> <span class="nn">pyns</span> <span class="kn">import</span> <span class="n">Neuroscout</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">Neuroscout</span><span class="p">()</span>
+
+<span class="n">dataset_name</span> <span class="o">=</span> <span class="s1">&#39;Budapest&#39;</span>
+
+<span class="c1"># First run for Budapest dataset</span>
+<span class="n">first_run</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">runs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="n">dataset_name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">subject</span> <span class="o">=</span> <span class="n">first_run</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">]</span> <span class="c1"># Save subject name</span>
+
+<span class="n">first_run</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alejandro/anaconda3/lib/python3.7/site-packages/pandas/compat/_optional.py:138: UserWarning: Pandas requires version &#39;2.7.0&#39; or newer of &#39;numexpr&#39; (version &#39;2.6.8&#39; currently installed).
+  warnings.warn(msg, UserWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;acquisition&#39;: None,
+ &#39;dataset_id&#39;: 27,
+ &#39;duration&#39;: 535.0,
+ &#39;id&#39;: 1435,
+ &#39;number&#39;: 3,
+ &#39;session&#39;: None,
+ &#39;subject&#39;: &#39;sid000005&#39;,
+ &#39;task&#39;: 48,
+ &#39;task_name&#39;: &#39;movie&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fetching-predictors">
+<h3>Fetching predictors<a class="headerlink" href="#fetching-predictors" title="Permalink to this headline">#</a></h3>
+<p>We will fetch two sets of predictors: <a class="reference external" href="https://neuroscout.org/predictor/mel_0">Mel spetrogram</a>, and  <a class="reference external" href="https://neuroscout.org/predictor/mfcc_0">Mel Frequency Cepstral Coefficient (MFCC)</a>. Both of these features are extracted from the auditory track of the movie stimulus (‘The Grand Budapest Hotel’). Later in the tutorial we’ll fit an encoding model to each set of features separately, and then jointly using a banded model.</p>
+<p>First, we define the names of the predictors we will fetch.</p>
+<p>To learn more about basic Neuroscout API querying, see this <a class="reference external" href="https://pyns.readthedocs.io/en/latest/querying.html">guide</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mfccs</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;mfcc_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)]</span>
+<span class="n">mel</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;mel_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">64</span><span class="p">)]</span>
+
+<span class="n">all_vars</span> <span class="o">=</span> <span class="n">mfccs</span> <span class="o">+</span> <span class="n">mel</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we can use the high-level utility <code class="docutils literal notranslate"><span class="pre">fetch_predictors</span></code> to retrieve these predictors for the target subject, rescaled using unit variance, and resampled to the imaging data’s Repetition Time (TR):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyns.fetch_utils</span> <span class="kn">import</span> <span class="n">fetch_predictors</span>
+
+<span class="n">predictors</span> <span class="o">=</span> <span class="n">fetch_predictors</span><span class="p">(</span><span class="n">all_vars</span><span class="p">,</span> <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;Budapest&#39;</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="s1">&#39;sid000005&#39;</span><span class="p">,</span> <span class="n">rescale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This results in a dataframe with predictors, plus meta-data such as file entities (e.g. subjects, runs)</p>
+</section>
+<section id="fetch-fmri-data-and-loading-images">
+<h3>Fetch fMRI data and loading images<a class="headerlink" href="#fetch-fmri-data-and-loading-images" title="Permalink to this headline">#</a></h3>
+<p>To retrieve Neuroscout data, we use <code class="docutils literal notranslate"><span class="pre">datalad</span></code> to fetch the preprocessed images remote.
+pyNS includes a helper function to facilitate installing and fetching the dataset using datalad: <code class="docutils literal notranslate"><span class="pre">fetch_images</span></code>.</p>
+<p>Provide the name of the dataset (<code class="docutils literal notranslate"><span class="pre">Budapest</span></code>), plus a directory where your datasets are stored, plus (optionally) filters to restrict which files are downloaded (e.g. subject)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyns.fetch_utils</span> <span class="kn">import</span> <span class="n">fetch_images</span>
+
+<span class="n">preproc_dir</span><span class="p">,</span> <span class="n">img_objs</span> <span class="o">=</span> <span class="n">fetch_images</span><span class="p">(</span><span class="s1">&#39;Budapest&#39;</span><span class="p">,</span> <span class="s1">&#39;/tmp/&#39;</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">subject</span><span class="p">,</span> <span class="n">fetch_brain_mask</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alejandro/anaconda3/lib/python3.7/site-packages/bids/layout/validation.py:51: UserWarning: The ability to pass arguments to BIDSLayout that control indexing is likely to be removed in future; possibly as early as PyBIDS 0.14. This includes the `config_filename`, `ignore`, `force_index`, and `index_metadata` arguments. The recommended usage pattern is to initialize a new BIDSLayoutIndexer with these arguments, and pass it to the BIDSLayout via the `indexer` argument.
+  warnings.warn(&quot;The ability to pass arguments to BIDSLayout that control &quot;
+/home/alejandro/anaconda3/lib/python3.7/site-packages/bids/layout/validation.py:156: UserWarning: The PipelineDescription field was superseded by GeneratedBy in BIDS 1.4.0. You can use ``pybids upgrade`` to update your derivative dataset.
+  warnings.warn(&quot;The PipelineDescription field was superseded &quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>action summary:
+  get (notneeded: 10)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fetch_images</span></code> represents images as pybids <code class="docutils literal notranslate"><span class="pre">BIDSImageFile</span></code> objects, which include meta-data such as entities as part of the object</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_objs</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">get_entities</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;datatype&#39;: &#39;func&#39;,
+ &#39;desc&#39;: &#39;brain&#39;,
+ &#39;extension&#39;: &#39;.nii.gz&#39;,
+ &#39;run&#39;: 1,
+ &#39;space&#39;: &#39;MNI152NLin2009cAsym&#39;,
+ &#39;subject&#39;: &#39;sid000005&#39;,
+ &#39;suffix&#39;: &#39;mask&#39;,
+ &#39;task&#39;: &#39;movie&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the entities, we can separate the list of images into two lists: preprocessed functional images, and brain masks</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_funcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">img_objs</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">entities</span><span class="p">[</span><span class="s1">&#39;suffix&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bold&#39;</span><span class="p">]</span>
+<span class="n">all_masks</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">img_objs</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">entities</span><span class="p">[</span><span class="s1">&#39;suffix&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;mask&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="image-preprocessing">
+<h3>Image preprocessing<a class="headerlink" href="#image-preprocessing" title="Permalink to this headline">#</a></h3>
+<p>The following computes a joint mask for all runs. Alternatively, we could also provide a apriori ROI mask here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nibabel</span> <span class="k">as</span> <span class="nn">nib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">_compute_mask_intersection</span><span class="p">(</span><span class="n">masks</span><span class="p">):</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Compute joint masks (i.e. where all masks have 1s)&quot;&quot;&quot;</span>
+    <span class="n">_masks</span> <span class="o">=</span> <span class="p">[</span><span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">masks</span><span class="p">]</span>
+    <span class="n">_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">_masks</span><span class="p">)</span>
+    
+    <span class="n">intersection</span> <span class="o">=</span> <span class="n">_data</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">Nifti1Image</span><span class="p">(</span>
+        <span class="n">intersection</span><span class="p">,</span> <span class="n">affine</span> <span class="o">=</span> <span class="n">_masks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">affine</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">_masks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">mask</span>
+
+<span class="n">inter_mask</span> <span class="o">=</span> <span class="n">_compute_mask_intersection</span><span class="p">(</span><span class="n">all_masks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alejandro/anaconda3/lib/python3.7/site-packages/IPython/core/interactiveshell.py:2961: FutureWarning: arrays to stack must be passed as a &quot;sequence&quot; type such as list or tuple. Support for non-sequence iterables such as generators is deprecated as of NumPy 1.16 and will raise an error in the future.
+  exec(code_obj, self.user_global_ns, self.user_ns)
+/home/alejandro/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:7: DeprecationWarning: get_data() is deprecated in favor of get_fdata(), which has a more predictable return type. To obtain get_data() behavior going forward, use numpy.asanyarray(img.dataobj).
+
+* deprecated from version: 3.0
+* Will raise &lt;class &#39;nibabel.deprecator.ExpiredDeprecationError&#39;&gt; as of version: 5.0
+  import sys
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can apply the corresponding brain mask to each run using <code class="docutils literal notranslate"><span class="pre">NiftiMasker</span></code> from <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>, and stack them into a single array for subsequent analysis</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <span class="n">NiftiMasker</span>
+
+<span class="k">def</span> <span class="nf">_mask_and_stack_images</span><span class="p">(</span><span class="n">image_objects</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Stack images into single array, and collect metadata entities into dataframe &quot;&quot;&quot;</span>
+    <span class="n">masker</span> <span class="o">=</span> <span class="n">NiftiMasker</span><span class="p">(</span><span class="n">mask_img</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+
+    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">entities</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">image_objects</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">image_objects</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">entities</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">image_objects</span><span class="p">:</span>
+        <span class="n">run_y</span> <span class="o">=</span> <span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+        <span class="n">arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">run_y</span><span class="p">)</span>
+        <span class="n">entities</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">entities</span><span class="p">)]</span> <span class="o">*</span> <span class="n">run_y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">entities</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">entities</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">arrays</span><span class="p">),</span> <span class="n">entities</span><span class="p">,</span> <span class="n">masker</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">,</span> <span class="n">img_entities</span><span class="p">,</span> <span class="n">masker</span> <span class="o">=</span> <span class="n">_mask_and_stack_images</span><span class="p">(</span><span class="n">all_funcs</span><span class="p">,</span> <span class="n">inter_mask</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The stacked runs have shape: (n_volumes, n_voxels)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3052, 123899)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We also keep the entities associated with each volume in a dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_entities</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>datatype</th>
+      <th>desc</th>
+      <th>extension</th>
+      <th>run</th>
+      <th>space</th>
+      <th>subject</th>
+      <th>suffix</th>
+      <th>task</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>func</td>
+      <td>preproc</td>
+      <td>.nii.gz</td>
+      <td>1</td>
+      <td>MNI152NLin2009cAsym</td>
+      <td>sid000005</td>
+      <td>bold</td>
+      <td>movie</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>func</td>
+      <td>preproc</td>
+      <td>.nii.gz</td>
+      <td>1</td>
+      <td>MNI152NLin2009cAsym</td>
+      <td>sid000005</td>
+      <td>bold</td>
+      <td>movie</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>func</td>
+      <td>preproc</td>
+      <td>.nii.gz</td>
+      <td>1</td>
+      <td>MNI152NLin2009cAsym</td>
+      <td>sid000005</td>
+      <td>bold</td>
+      <td>movie</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>func</td>
+      <td>preproc</td>
+      <td>.nii.gz</td>
+      <td>1</td>
+      <td>MNI152NLin2009cAsym</td>
+      <td>sid000005</td>
+      <td>bold</td>
+      <td>movie</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>func</td>
+      <td>preproc</td>
+      <td>.nii.gz</td>
+      <td>1</td>
+      <td>MNI152NLin2009cAsym</td>
+      <td>sid000005</td>
+      <td>bold</td>
+      <td>movie</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3047</th>
+      <td>func</td>
+      <td>preproc</td>
+      <td>.nii.gz</td>
+      <td>5</td>
+      <td>MNI152NLin2009cAsym</td>
+      <td>sid000005</td>
+      <td>bold</td>
+      <td>movie</td>
+    </tr>
+    <tr>
+      <th>3048</th>
+      <td>func</td>
+      <td>preproc</td>
+      <td>.nii.gz</td>
+      <td>5</td>
+      <td>MNI152NLin2009cAsym</td>
+      <td>sid000005</td>
+      <td>bold</td>
+      <td>movie</td>
+    </tr>
+    <tr>
+      <th>3049</th>
+      <td>func</td>
+      <td>preproc</td>
+      <td>.nii.gz</td>
+      <td>5</td>
+      <td>MNI152NLin2009cAsym</td>
+      <td>sid000005</td>
+      <td>bold</td>
+      <td>movie</td>
+    </tr>
+    <tr>
+      <th>3050</th>
+      <td>func</td>
+      <td>preproc</td>
+      <td>.nii.gz</td>
+      <td>5</td>
+      <td>MNI152NLin2009cAsym</td>
+      <td>sid000005</td>
+      <td>bold</td>
+      <td>movie</td>
+    </tr>
+    <tr>
+      <th>3051</th>
+      <td>func</td>
+      <td>preproc</td>
+      <td>.nii.gz</td>
+      <td>5</td>
+      <td>MNI152NLin2009cAsym</td>
+      <td>sid000005</td>
+      <td>bold</td>
+      <td>movie</td>
+    </tr>
+  </tbody>
+</table>
+<p>3052 rows × 8 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="fitting-ridge-regression-model-using-melspectrogram-features">
+<h2>Fitting Ridge regression model using melspectrogram features<a class="headerlink" href="#fitting-ridge-regression-model-using-melspectrogram-features" title="Permalink to this headline">#</a></h2>
+<p>First, we’ll fit a basic Ridge regression model to a subset of voxels (for demonstration purposes).</p>
+<p>We’ll define two cross-validators: an outer and an inner cv. The outer cross-validator will loop be used to estimate the performance of the model on unseen data, and the inner cv will be used to select the alpha hyperparameter for Ridge regression, within each fold of the outer cross-validator.</p>
+<p>In both cases, we’ll use the leave-one-run-out strategy, testing the model on an unseen run. Since there are multiple observations per run, we use the<code class="docutils literal notranslate"><span class="pre">run</span></code> column of <code class="docutils literal notranslate"><span class="pre">X_entities</span></code> to group observations, and ensure they appear together within each fold.</p>
+<p>Finally, we also define a scoring function, in this case, <code class="docutils literal notranslate"><span class="pre">correlation_score</span></code>.</p>
+<p>Note that we are using the <code class="docutils literal notranslate"><span class="pre">himalaya</span></code> library’s <code class="docutils literal notranslate"><span class="pre">KernelRidgeCV</span></code> estimator, as it is optimized for multi-target (i.e. voxel) estimation &amp; hyperparameter optimization with a sklearn-like API.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">himalaya.ridge</span> <span class="kn">import</span> <span class="n">RidgeCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GroupKFold</span>
+<span class="kn">from</span> <span class="nn">himalaya.scoring</span> <span class="kn">import</span> <span class="n">correlation_score</span>
+<span class="kn">from</span> <span class="nn">himalaya.backend</span> <span class="kn">import</span> <span class="n">set_backend</span>
+
+<span class="n">backend</span> <span class="o">=</span> <span class="n">set_backend</span><span class="p">(</span><span class="s2">&quot;torch_cuda&quot;</span><span class="p">,</span> <span class="n">on_error</span><span class="o">=</span><span class="s2">&quot;warn&quot;</span><span class="p">)</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="n">predictors</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># Set up estimator and CV objects</span>
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">RidgeCV</span><span class="p">()</span>
+<span class="n">n_runs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">groups</span><span class="p">))</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">GroupKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">n_runs</span><span class="p">)</span>
+<span class="n">inner_cv</span> <span class="o">=</span> <span class="n">GroupKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">n_runs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alejandro/anaconda3/lib/python3.7/site-packages/himalaya/backend/_utils.py:56: UserWarning: Setting backend to torch_cuda failed: PyTorch not installed..Falling back to numpy backend.
+  warnings.warn(f&quot;Setting backend to {backend} failed: {str(error)}.&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following is a generic pipeline for applying the esimator to the data (including support for banded-regression, which we’ll discuss later)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_model_cv</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">cv</span><span class="p">,</span> <span class="n">X_vars</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">scoring</span><span class="o">=</span><span class="n">correlation_score</span><span class="p">,</span>
+              <span class="n">inner_cv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">confounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    
+    <span class="c1"># Container for results</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;coefficients&#39;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s1">&#39;test_predictions&#39;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s1">&#39;test_scores&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+    
+    <span class="c1"># If confounds, stack at the end</span>
+    <span class="k">if</span> <span class="n">confounds</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">bands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">confounds</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">bands</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">bands</span><span class="p">:</span>
+            <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X_vars</span><span class="p">[</span><span class="n">band</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X_vars</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="c1"># Extract number of samples for convenience</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># Loop through outer cross-validation folds</span>
+    <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_samples</span><span class="p">),</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">):</span>
+        
+        <span class="c1"># Get training model for list of model bands</span>
+        <span class="n">X_train</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">train</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span> <span class="k">else</span> <span class="n">X</span><span class="p">[</span><span class="n">train</span><span class="p">]</span>
+        <span class="n">X_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">test</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span> <span class="k">else</span> <span class="n">X</span><span class="p">[</span><span class="n">test</span><span class="p">]</span>
+        
+        <span class="c1"># Create inner cross-validation loop if specified</span>
+        <span class="k">if</span> <span class="n">inner_cv</span><span class="p">:</span>
+            <span class="c1"># Split inner cross-validation with groups if supplied</span>
+            <span class="n">inner_groups</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">groups</span><span class="p">)[</span><span class="n">train</span><span class="p">]</span> <span class="k">if</span> <span class="n">groups</span> <span class="k">else</span> <span class="n">groups</span>
+            <span class="n">inner_splits</span> <span class="o">=</span> <span class="n">inner_cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)[</span><span class="n">train</span><span class="p">],</span>
+                                          <span class="n">groups</span><span class="o">=</span><span class="n">inner_groups</span><span class="p">)</span>
+            
+            <span class="c1"># Update estimator with inner cross-validator</span>
+            <span class="n">estimator</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="n">inner_splits</span><span class="p">)</span>
+        
+        <span class="c1"># Fit the regression model on training data</span>
+        <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">train</span><span class="p">])</span>
+        
+        <span class="c1"># Zero out coefficients for confounds if provided</span>
+        <span class="k">if</span> <span class="n">confounds</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">estimator</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">confounds</span><span class="p">):]</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="c1"># Compute predictions with optional splitting by band</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">split</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;split&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">split</span>
+        <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+        <span class="c1"># Test scores should also optionally split by band</span>
+        <span class="n">test_score</span> <span class="o">=</span> <span class="n">scoring</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">test_prediction</span><span class="p">)</span>
+        
+        <span class="c1"># Populate results dictionary</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_predictions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_prediction</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_score</span><span class="p">)</span>
+        
+    <span class="c1"># Combine into single aray</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="mel-spectrogram-features-only">
+<h3>Mel-spectrogram features only<a class="headerlink" href="#mel-spectrogram-features-only" title="Permalink to this headline">#</a></h3>
+<p>First, we’ll fit this model using only the mel-spectrogram features:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">predictors</span><span class="p">[</span><span class="n">mel</span><span class="p">]</span> <span class="c1"># Take a subset of X for this model</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">_model_cv</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">cv</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">inner_cv</span><span class="o">=</span><span class="n">inner_cv</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">result</span></code> dictionary contains:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;coefficients&#39;, &#39;test_predictions&#39;, &#39;test_scores&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">test_scores</span></code> &amp; coefficients are of shape: (n_folds, n_voxels).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5, 123899)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can average across folds, and only take positive scores:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mean_scores</span><span class="p">[</span><span class="n">mean_scores</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.17239105274654085
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.013437605362038522
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can inverse transform the score map, to a 3D volume, and vizualize it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_stat_map</span>
+
+<span class="n">plot_stat_map</span><span class="p">(</span><span class="n">masker</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">mean_scores</span><span class="p">),</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alejandro/anaconda3/lib/python3.7/site-packages/nilearn/plotting/img_plotting.py:300: FutureWarning: Default resolution of the MNI template will change from 2mm to 1mm in version 0.10.0
+  anat_img = load_mni152_template()
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7fb439bb0c18&gt;
+</pre></div>
+</div>
+<img alt="../_images/ridge-encoding_43_2.png" src="../_images/ridge-encoding_43_2.png" />
+</div>
+</div>
+</section>
+<section id="ridge-regression-using-mfcc-features">
+<h3>Ridge regression using MFCC features<a class="headerlink" href="#ridge-regression-using-mfcc-features" title="Permalink to this headline">#</a></h3>
+<p>We can now run a similar model, but using MFCC featues, instead of the mel-spectrogram</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">predictors</span><span class="p">[</span><span class="n">mfccs</span><span class="p">]</span>
+<span class="n">results_mfcc</span> <span class="o">=</span> <span class="n">_model_cv</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">cv</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">inner_cv</span><span class="o">=</span><span class="n">inner_cv</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores_mfcc</span> <span class="o">=</span> <span class="n">results_mfcc</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mean_scores_mfcc</span><span class="p">[</span><span class="n">mean_scores_mfcc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From looking at whole-brain scores, the MFCC model outperforms the mel-spectrogram model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores_mfcc</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3147913597910006
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores_mfcc</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02529379029622442
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_stat_map</span><span class="p">,</span> <span class="n">plot_glass_brain</span>
+
+<span class="n">plot_stat_map</span><span class="p">(</span><span class="n">masker</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">mean_scores_mfcc</span><span class="p">),</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7fb44d6ed278&gt;
+</pre></div>
+</div>
+<img alt="../_images/ridge-encoding_51_1.png" src="../_images/ridge-encoding_51_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="finite-impulse-response-model">
+<h2>Finite impulse response model<a class="headerlink" href="#finite-impulse-response-model" title="Permalink to this headline">#</a></h2>
+<p>Due to the hemodynamic response lag, it’s likely the model would perform better if the predictors were delayed.</p>
+<p>We can do so using a Finite Impulse Response (fir) model.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">fetch_predictors</span></code>, we can ask for the predictors to be returned as a <code class="docutils literal notranslate"><span class="pre">BIDSVariableCollection</span></code>, which enables us to apply any of the transformations implemented in pybids.</p>
+<p>Alternatively, you could apply any arbitrary transformations, by requesting a pandas data-frame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="n">fetch_predictors</span><span class="p">(</span><span class="n">all_vars</span><span class="p">,</span> <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;Budapest&#39;</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="s1">&#39;sid000005&#39;</span><span class="p">,</span> 
+                              <span class="n">rescale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;collection&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we using <code class="docutils literal notranslate"><span class="pre">Convolve</span></code> to apply a <code class="docutils literal notranslate"><span class="pre">fir</span></code> model, and convert to a pandas df</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bids.modeling.transformations</span> <span class="kn">import</span> <span class="n">Convolve</span>
+
+<span class="k">def</span> <span class="nf">_convolve_df</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">predictor_names</span><span class="p">):</span>    
+    <span class="n">Convolve</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">predictor_names</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;fir&#39;</span><span class="p">,</span> <span class="n">fir_delays</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+    <span class="c1"># To df, and sort rows by keys</span>
+    <span class="n">collection_df</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">to_df</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;onset&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Reorder columns</span>
+    <span class="n">sort_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;onset&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">predictor_names</span>
+    <span class="n">sort_columns</span> <span class="o">+=</span> <span class="n">collection_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">sort_columns</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">collection_df</span> <span class="o">=</span> <span class="n">collection_df</span><span class="p">[</span><span class="n">sort_columns</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">collection_df</span>
+
+<span class="n">collection_df</span> <span class="o">=</span> <span class="n">_convolve_df</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">all_vars</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collection_df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3052, 425)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The FIR convolution results in 5x amount of predictors, including the delayed version of the predictors.</p>
+<p>We can now fit a model with all the mel-spectrogram features, to see if that improves prediction</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">collection_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">collection_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;mel&#39;</span><span class="p">)]</span>
+<span class="n">results_mel_fir</span> <span class="o">=</span> <span class="n">_model_cv</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">cv</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">inner_cv</span><span class="o">=</span><span class="n">inner_cv</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores_mel_fir</span> <span class="o">=</span> <span class="n">results_mel_fir</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mean_scores_mel_fir</span><span class="p">[</span><span class="n">mean_scores_mel_fir</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The max score increases, while the mean score remains similar (although marginally higher)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores_mel_fir</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.20715833775782766
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores_mel_fir</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.013593416134651235
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_stat_map</span><span class="p">(</span><span class="n">masker</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">mean_scores_mel_fir</span><span class="p">),</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7fb3fadab400&gt;
+</pre></div>
+</div>
+<img alt="../_images/ridge-encoding_64_1.png" src="../_images/ridge-encoding_64_1.png" />
+</div>
+</div>
+<section id="fir-model-with-mfcc-features">
+<h3>FIR model with MFCC features<a class="headerlink" href="#fir-model-with-mfcc-features" title="Permalink to this headline">#</a></h3>
+<p>Next, we try the MFCC-only model with FIR delays</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">collection_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">collection_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;mfcc&#39;</span><span class="p">)]</span>
+<span class="n">results_mfcc_fir</span> <span class="o">=</span> <span class="n">_model_cv</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">cv</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">inner_cv</span><span class="o">=</span><span class="n">inner_cv</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_mfcc_fir</span> <span class="o">=</span> <span class="n">results_mfcc_fir</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">results_mfcc_fir</span><span class="p">[</span><span class="n">results_mfcc_fir</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we see the prediction scores increased substantially, compared to the MFCC-only model without FIR delays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_mfcc_fir</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.44845797021730094
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_mfcc_fir</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03555176165355581
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_stat_map</span><span class="p">(</span><span class="n">masker</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">results_mfcc_fir</span><span class="p">),</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7fb457277f28&gt;
+</pre></div>
+</div>
+<img alt="../_images/ridge-encoding_72_1.png" src="../_images/ridge-encoding_72_1.png" />
+</div>
+</div>
+</section>
+<section id="banded-model-with-both-mel-and-mfcc">
+<h3>Banded model with both mel and MFCC<a class="headerlink" href="#banded-model-with-both-mel-and-mfcc" title="Permalink to this headline">#</a></h3>
+<p>Finally, we can fit a banded ridge regression model, which estimates a separate hyper-parameter for each set of features (MFCC &amp; mel-spectrogram).</p>
+<p>To learn more about banded ridge regression, see this tutorial: <a class="reference external" href="https://gallantlab.github.io/voxelwise_tutorials/_auto_examples/shortclips/06_plot_banded_ridge_model.html#sphx-glr-auto-examples-shortclips-06-plot-banded-ridge-model-py">https://gallantlab.github.io/voxelwise_tutorials/_auto_examples/shortclips/06_plot_banded_ridge_model.html#sphx-glr-auto-examples-shortclips-06-plot-banded-ridge-model-py</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">himalaya.kernel_ridge</span> <span class="kn">import</span> <span class="n">MultipleKernelRidgeCV</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimator</span> <span class="o">=</span> <span class="n">MultipleKernelRidgeCV</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">collection_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">collection_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">)]</span>
+
+<span class="n">results_combined</span> <span class="o">=</span> <span class="n">_model_cv</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">cv</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">inner_cv</span><span class="o">=</span><span class="n">inner_cv</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[........................................] 100% | 1627.69 sec | 100 random sampling with cv | 
+[........................................] 100% | 1839.89 sec | 100 random sampling with cv | 
+[........................................] 100% | 1821.94 sec | 100 random sampling with cv | 
+[........................................] 100% | 1908.35 sec | 100 random sampling with cv | 
+[........................................] 100% | 1960.49 sec | 100 random sampling with cv | 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_combined</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5, 123899)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_combined</span> <span class="o">=</span> <span class="n">results_combined</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">results_combined</span><span class="p">[</span><span class="n">results_combined</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A model with both MFCC and mel-spectrogram features out performs all previous models:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_combined</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5090656604989515
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_combined</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03506069842033324
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_stat_map</span><span class="p">(</span><span class="n">masker</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">results_combined</span><span class="p">),</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7fb44da81ac8&gt;
+</pre></div>
+</div>
+<img alt="../_images/ridge-encoding_82_1.png" src="../_images/ridge-encoding_82_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="where-to-go-from-here">
+<h2>Where to go from here?<a class="headerlink" href="#where-to-go-from-here" title="Permalink to this headline">#</a></h2>
+<p>The goal of this tutorial is to familiarize you with how to access Neuroscout’s data to fit custom models.</p>
+<p>This tutorial does not exhaustivly cover all possible models that can be fit using these data, but at this point you should have the tool necessary to access the necessary data from NeuroScout’s API.</p>
+<p>Please ensure to cite Neuroscout if publishing any work using these data, and be aware that there are ongoing efforts to standardize the most common variations of voxel-wise encoding models, in order to enable users to fully specify and register their analysis in Neuroscout (like you currently can for summary-statistics multi-level GLM models).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "neuroscout/neuroscout-docs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./python_api"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Neuroscout team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

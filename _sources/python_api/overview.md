@@ -1,4 +1,4 @@
-# Overview
+# Usage & Reference
 
 [![Documentation Status](https://readthedocs.org/projects/pyns/badge/?version=latest&style=flat)](https://pyns.readthedocs.io/en/latest/?badge=latest) [![PyPI version](https://badge.fury.io/py/pyNS.svg)](https://badge.fury.io/py/pyNS)
 
@@ -15,7 +15,10 @@ For the end user, __pyNS__ enables flexibly querying and interaction with the Ne
 
 In addition, for developers __pyNS__ may enable the development of novel experimental applications that use Neuroscout API's data. For example, there is ongoing work to develop an encoding analysis workflow in Neuroscout using __pyNS__. 
 
+## Quickstart
+For comprehensive reference of `pyNS` usage (including [quickstart](https://pyns.readthedocs.io/en/latest/quickstart.html), [querying](https://pyns.readthedocs.io/en/latest/querying.html) & [creating analyses](https://pyns.readthedocs.io/en/latest/analyses.html)) and [Python API](https://pyns.readthedocs.io/en/latest/api.html) reference, please visit the official [pyNS Documentation](https://pyns.readthedocs.io/en/latest/) on ReadTheDocs. These docs are updated as new pyNS versions are released.
 
-### Documentation
+## Contribute to pyNS
 
-The pyNS library provides its own complete documentation at [ReadTheDocs](https://pyns.readthedocs.io/en/latest/). Please refer to that for installation instructions, quickstart, and in depth reference.
+If you'd like to conribute to pyNS, visit the [pyNS repository](https://github.com/neuroscout/pyns) on GitHub.
+For bug reports or feature requests, please [submit an issue](https://github.com/neuroscout/pyns).
