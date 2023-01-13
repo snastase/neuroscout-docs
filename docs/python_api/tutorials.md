@@ -10,4 +10,4 @@ Here we highlight some of these advanced use cases and provide tutorials for how
   To learn more, see the official [fetching tutorial](https://pyns.readthedocs.io/en/latest/fetching.html) in the 
   official pyNS documentation.
 
-* [Regularized (banded) cross-validated regression workflow](multi-band-encoding.ipynb).
+* [Ridge cross-validated regression workflow](ridge-encoding.ipynb).
