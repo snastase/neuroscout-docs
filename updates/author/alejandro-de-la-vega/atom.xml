@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://neuroscout.github.io/neuroscout-docs/</id>
   <title>Neuroscout Blog - Posts by Alejandro de la Vega</title>
-  <updated>2023-01-13T22:39:05.922897+00:00</updated>
+  <updated>2023-04-03T20:35:32.376452+00:00</updated>
   <link href="https://neuroscout.github.io/neuroscout-docs/"/>
   <link href="https://neuroscout.github.io/neuroscout-docs/updates/author/alejandro-de-la-vega/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.33">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.io/" version="0.11.2">ABlog</generator>
   <entry>
     <id>https://neuroscout.github.io/neuroscout-docs/updates/2022-08-25-preprint.html</id>
     <title>Big news from the Neuroscout team!</title>
@@ -30,7 +30,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./updates/author"
         },
         predefinedOutput: true
