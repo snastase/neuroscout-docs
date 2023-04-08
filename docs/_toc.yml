@@ -30,7 +30,7 @@ parts:
   - file: cli/docker
   - file: cli/singularity
   - file: cli/Neuroscout_CLI_Colab_Demo
-  - file: cli/usage
 - caption: "pyNS: Python API"
   chapters:
   - file: python_api/overview
+  - file: python_api/tutorials
