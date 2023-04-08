@@ -24,7 +24,7 @@ With a set of predictors, and a set of brain imaging time courses, users can the
 
 To learn more about `pyns.fetch_utils`, check out the [documentation](https://pyns.readthedocs.io/en/latest/fetching.html).
 
-## An encoding model example! 🚀
+## An encoding model tutorial! 🚀
 
 To demonstrate how to use `pyns.fetch_utils`, we have created a new example notebook that demonstrates how to fit a simple voxel-wise encoding model using the new API fetch utilities. 
 
