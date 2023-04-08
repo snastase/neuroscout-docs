@@ -47,4 +47,4 @@ Be sure to stay tuned for more updates, and get in touch if you want to contribu
 ## Acknowledgements
 
 Thank you to Roberta Rocca and Sam Nastase for their help in developing the example encoding model notebook during the 2022 OHBM Hackathon!
-Also thank you to Jeff Mentch, 
+Also thank you to Jeff Mentch, for his help in developing the `pyns.fetch_utils` API, and giving feedback on the Neuroscout platform.
